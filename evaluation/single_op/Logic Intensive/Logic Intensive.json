@@ -1,0 +1,72 @@
+[
+    {
+        "op_name": "dilate",
+        "c_code": "void default_function_kernel(float* DilatedInput, float* data) {\n  #pragma omp parallel for\n  for (int32_t i0_i1_fused_i2_fused_i3_fused = 0; i0_i1_fused_i2_fused_i3_fused < 2464; ++i0_i1_fused_i2_fused_i3_fused) {\n    DilatedInput[i0_i1_fused_i2_fused_i3_fused] = data[i0_i1_fused_i2_fused_i3_fused];\n  }\n}\n\n",
+        "cuda_code": "extern \"C\" __global__ void __launch_bounds__(44) default_function_kernel(float* __restrict__ DilatedInput, float* __restrict__ data) {\n  DilatedInput[((((int)blockIdx.x) * 44) + ((int)threadIdx.x))] = data[((((int)blockIdx.x) * 44) + ((int)threadIdx.x))];\n}\n\n",
+        "ir_code": "# from tvm.script import ir as I\n# from tvm.script import tir as T\n\n@I.ir_module\nclass Module:\n    @T.prim_func\n    def main(data: T.Buffer((2, 11, 16, 7), \"float32\"), DilatedInput: T.Buffer((2, 11, 16, 7), \"float32\")):\n        T.func_attr({\"from_legacy_te_schedule\": T.bool(True), \"tir.noalias\": T.bool(True)})\n        for i0_i1_fused_i2_fused_i3_fused in T.parallel(2464):\n            DilatedInput_1 = T.Buffer((2464,), data=DilatedInput.data)\n            data_1 = T.Buffer((2464,), data=data.data)\n            DilatedInput_1[i0_i1_fused_i2_fused_i3_fused] = data_1[i0_i1_fused_i2_fused_i3_fused]",
+        "op_args": [
+            2,
+            11,
+            16,
+            7
+        ],
+        "input_shape": "[[2, 11, 16, 7]]",
+        "output_shape": "[[2, 11, 16, 7]]"
+    },
+    {
+        "op_name": "fifo_buffer",
+        "c_code": "void default_function_kernel(float* data, float* new_buffer) {\n  #pragma omp parallel for\n  for (int32_t i_j_fused = 0; i_j_fused < 255; ++i_j_fused) {\n    for (int32_t k = 0; k < 7; ++k) {\n      for (int32_t l = 0; l < 18; ++l) {\n        new_buffer[(((i_j_fused * 126) + (k * 18)) + l)] = data[(((i_j_fused * 126) + (k * 18)) + l)];\n      }\n    }\n  }\n}\n\n",
+        "cuda_code": "extern \"C\" __global__ void __launch_bounds__(34) default_function_kernel(float* __restrict__ data, float* __restrict__ new_buffer) {\n  new_buffer[((((int)blockIdx.x) * 34) + ((int)threadIdx.x))] = data[((((int)blockIdx.x) * 34) + ((int)threadIdx.x))];\n}\n\n",
+        "ir_code": "# from tvm.script import ir as I\n# from tvm.script import tir as T\n\n@I.ir_module\nclass Module:\n    @T.prim_func\n    def main(data: T.Buffer((15, 17, 7, 18), \"float32\"), buffer: T.Buffer((15, 17, 7, 18), \"float32\"), new_buffer: T.Buffer((15, 17, 7, 18), \"float32\")):\n        T.func_attr({\"from_legacy_te_schedule\": T.bool(True), \"tir.noalias\": T.bool(True)})\n        for i_j_fused in T.parallel(255):\n            for k, l in T.grid(7, 18):\n                cse_var_1: T.int32 = i_j_fused * 126 + k * 18 + l\n                new_buffer_1 = T.Buffer((32130,), data=new_buffer.data)\n                data_1 = T.Buffer((32130,), data=data.data)\n                new_buffer_1[cse_var_1] = data_1[cse_var_1]",
+        "op_args": [
+            15,
+            17,
+            7,
+            18
+        ],
+        "input_shape": "[[15, 17, 7, 18], [15, 17, 7, 18]]",
+        "output_shape": "[[15, 17, 7, 18]]"
+    },
+    {
+        "op_name": "mirror_pad",
+        "c_code": "void default_function_kernel(float* MirrorPadInput, float* data) {\n  #pragma omp parallel for\n  for (int32_t i0 = 0; i0 < 5; ++i0) {\n    for (int32_t i1 = 0; i1 < 9; ++i1) {\n      MirrorPadInput[((i0 * 9) + i1)] = data[((((3 <= i0) ? (4 - i0) : ((i0 < 1) ? (0 - i0) : (i0 - 1))) * 6) + ((i1 == 8) ? (13 - i1) : ((i1 < 2) ? (1 - i1) : (i1 - 2))))];\n    }\n  }\n}\n\n",
+        "cuda_code": "extern \"C\" __global__ void __launch_bounds__(11) default_function_kernel(float* __restrict__ MirrorPadInput, float* __restrict__ data) {\n  if (((((int)blockIdx.x) * 11) + ((int)threadIdx.x)) < 45) {\n    MirrorPadInput[((((int)blockIdx.x) * 11) + ((int)threadIdx.x))] = data[((((27 <= ((((int)blockIdx.x) * 11) + ((int)threadIdx.x))) ? (4 - (((((int)blockIdx.x) * 11) + ((int)threadIdx.x)) / 9)) : ((((((int)blockIdx.x) * 11) + ((int)threadIdx.x)) < 9) ? 0 : ((((((int)blockIdx.x) * 11) + ((int)threadIdx.x)) / 9) - 1))) * 6) + (((((((int)blockIdx.x) * 2) + ((int)threadIdx.x)) % 9) == 8) ? (13 - (((((int)blockIdx.x) * 2) + ((int)threadIdx.x)) % 9)) : (((((((int)blockIdx.x) * 2) + ((int)threadIdx.x)) % 9) < 2) ? (1 - (((((int)blockIdx.x) * 2) + ((int)threadIdx.x)) % 9)) : ((((((int)blockIdx.x) * 2) + ((int)threadIdx.x)) % 9) - 2))))];\n  }\n}\n\n",
+        "ir_code": "# from tvm.script import ir as I\n# from tvm.script import tir as T\n\n@I.ir_module\nclass Module:\n    @T.prim_func\n    def main(data: T.Buffer((2, 6), \"float32\"), MirrorPadInput: T.Buffer((5, 9), \"float32\")):\n        T.func_attr({\"from_legacy_te_schedule\": T.bool(True), \"tir.noalias\": T.bool(True)})\n        for i0 in T.parallel(5):\n            for i1 in range(9):\n                MirrorPadInput_1 = T.Buffer((45,), data=MirrorPadInput.data)\n                data_1 = T.Buffer((12,), data=data.data)\n                MirrorPadInput_1[i0 * 9 + i1] = data_1[T.if_then_else(3 <= i0, 4 - i0, T.if_then_else(i0 < 1, 0 - i0, i0 - 1)) * 6 + T.if_then_else(i1 == 8, 13 - i1, T.if_then_else(i1 < 2, 1 - i1, i1 - 2))]",
+        "op_args": [
+            14,
+            16,
+            2,
+            6
+        ],
+        "input_shape": "[[2, 6]]",
+        "output_shape": "[[5, 9]]"
+    },
+    {
+        "op_name": "shape",
+        "c_code": "void default_function_kernel(int32_t* T_shape) {\n  #pragma omp parallel for\n  for (int32_t ax0 = 0; ax0 < 4; ++ax0) {\n    T_shape[ax0] = ((ax0 == 3) ? 11 : ((ax0 == 2) ? 1 : ((ax0 == 1) ? 5 : 14)));\n  }\n}\n\n",
+        "cuda_code": "extern \"C\" __global__ void __launch_bounds__(4) default_function_kernel(int* __restrict__ T_shape) {\n  T_shape[((int)threadIdx.x)] = ((((int)threadIdx.x) == 3) ? 11 : ((((int)threadIdx.x) == 2) ? 1 : ((((int)threadIdx.x) == 1) ? 5 : 14)));\n}\n\n",
+        "ir_code": "# from tvm.script import ir as I\n# from tvm.script import tir as T\n\n@I.ir_module\nclass Module:\n    @T.prim_func\n    def main(data: T.Buffer((14, 5, 1, 11), \"float32\"), T_shape: T.Buffer((4,), \"int32\")):\n        T.func_attr({\"from_legacy_te_schedule\": T.bool(True), \"tir.noalias\": T.bool(True)})\n        for ax0 in T.parallel(4):\n            T_shape[ax0] = T.if_then_else(ax0 == 3, 11, T.if_then_else(ax0 == 2, 1, T.if_then_else(ax0 == 1, 5, 14)))",
+        "op_args": [
+            14,
+            5,
+            1,
+            11
+        ],
+        "input_shape": "[[14, 5, 1, 11]]",
+        "output_shape": "[[4]]"
+    },
+    {
+        "op_name": "multi_out_op",
+        "c_code": "void default_function_kernel(float* compute, float* compute_1, float* data, float* data_1) {\n  #pragma omp parallel for\n  for (int32_t i0 = 0; i0 < 4; ++i0) {\n    for (int32_t i1 = 0; i1 < 17; ++i1) {\n      for (int32_t i2 = 0; i2 < 12; ++i2) {\n        for (int32_t i3 = 0; i3 < 17; ++i3) {\n          compute[((((i0 * 3468) + (i1 * 204)) + (i2 * 17)) + i3)] = sqrtf((data[((((i0 * 3468) + (i1 * 204)) + (i2 * 17)) + i3)] + data_1[((((i0 * 3468) + (i1 * 204)) + (i2 * 17)) + i3)]));\n        }\n      }\n    }\n  }\n  #pragma omp parallel for\n  for (int32_t i0_i1_fused = 0; i0_i1_fused < 68; ++i0_i1_fused) {\n    for (int32_t i2_1 = 0; i2_1 < 12; ++i2_1) {\n      for (int32_t i3_1 = 0; i3_1 < 17; ++i3_1) {\n        compute_1[(((i0_i1_fused * 204) + (i2_1 * 17)) + i3_1)] = cosf((data[(((i0_i1_fused * 204) + (i2_1 * 17)) + i3_1)] + data_1[(((i0_i1_fused * 204) + (i2_1 * 17)) + i3_1)]));\n      }\n    }\n  }\n}\n\n",
+        "cuda_code": "extern \"C\" __global__ void __launch_bounds__(24) default_function_kernel_1(float* __restrict__ compute, float* __restrict__ data, float* __restrict__ data_1) {\n  compute[((((int)blockIdx.x) * 24) + ((int)threadIdx.x))] = __cosf((data[((((int)blockIdx.x) * 24) + ((int)threadIdx.x))] + data_1[((((int)blockIdx.x) * 24) + ((int)threadIdx.x))]));\n}\n\nextern \"C\" __global__ void __launch_bounds__(6) default_function_kernel(float* __restrict__ compute, float* __restrict__ data, float* __restrict__ data_1) {\n  compute[((((int)blockIdx.x) * 6) + ((int)threadIdx.x))] = sqrtf((data[((((int)blockIdx.x) * 6) + ((int)threadIdx.x))] + data_1[((((int)blockIdx.x) * 6) + ((int)threadIdx.x))]));\n}\n\n",
+        "ir_code": "# from tvm.script import ir as I\n# from tvm.script import tir as T\n\n@I.ir_module\nclass Module:\n    @T.prim_func\n    def main(data: T.Buffer((4, 17, 12, 17), \"float32\"), data_1: T.Buffer((4, 17, 12, 17), \"float32\"), compute: T.Buffer((4, 17, 12, 17), \"float32\"), compute_1: T.Buffer((4, 17, 12, 17), \"float32\")):\n        T.func_attr({\"from_legacy_te_schedule\": T.bool(True), \"tir.noalias\": T.bool(True)})\n        data_2 = T.Buffer((13872,), data=data.data)\n        data_3 = T.Buffer((13872,), data=data_1.data)\n        for i0 in T.parallel(4):\n            for i1, i2, i3 in T.grid(17, 12, 17):\n                cse_var_1: T.int32 = i0 * 3468 + i1 * 204 + i2 * 17 + i3\n                compute_2 = T.Buffer((13872,), data=compute.data)\n                compute_2[cse_var_1] = T.sqrt(data_2[cse_var_1] + data_3[cse_var_1])\n        for i0_i1_fused in T.parallel(68):\n            for i2, i3 in T.grid(12, 17):\n                cse_var_2: T.int32 = i0_i1_fused * 204 + i2 * 17 + i3\n                compute_2 = T.Buffer((13872,), data=compute_1.data)\n                compute_2[cse_var_2] = T.cos(data_2[cse_var_2] + data_3[cse_var_2])",
+        "op_args": [
+            4,
+            17,
+            12,
+            17
+        ],
+        "input_shape": "[[4, 17, 12, 17], [4, 17, 12, 17], [4, 17, 12, 17]]",
+        "output_shape": "[[4, 17, 12, 17]]"
+    }
+]

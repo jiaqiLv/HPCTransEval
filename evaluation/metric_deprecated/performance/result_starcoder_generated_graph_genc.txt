@@ -1,0 +1,36 @@
+topology_expansion_[['abs', 'asinh', 'exp', 'ceil', 'ceil']]_[[1, 9, 2]]: 1.6236395835876465
+topology_expansion_[['exp', 'atanh']]_[[13, 17, 7]]: 1.5702381134033203
+topology_expansion_[['multiply', 'abs', 'atanh']]_[[19, 20, 18], [9, 19, 17], [19, 20, 18]]: 0.015985727310180664
+topology_expansion_[['atan', 'atan', 'abs', 'atan']]_[[6, 3, 7]]: 1.6485300064086914
+topology_expansion_[['divide', 'add', 'exp', 'acosh', 'atanh', 'atan']]_[[20, 13, 9], [16, 4, 9], [20, 13, 9]]: 0.01500391960144043
+topology_expansion_[['sin', 'atanh', 'mod', 'acosh', 'sin', 'asinh']]_[[16, 10, 8]]: 1.5948631763458252
+topology_expansion_[['atanh', 'ceil', 'acosh', 'ceil', 'ceil']]_[[15, 10, 18]]: 1.6654412746429443
+topology_expansion_[['asinh', 'asin', 'atanh', 'sin']]_[[2, 11, 7]]: 1.6083104610443115
+topology_expansion_[['ceil', 'asin', 'atanh', 'acos', 'sin', 'exp', 'asin']]_[[9, 11, 6]]: 1.6892695426940918
+topology_expansion_[['atanh', 'asin', 'atanh', 'abs', 'asin']]_[[2, 5, 15]]: 1.5882494449615479
+topology_expansion_[['atan', 'cos', 'add', 'exp']]_[[16, 17, 4]]: 1.405853509902954
+topology_expansion_[['divide', 'atan', 'cos', 'subtract']]_[[9, 13, 10], [17, 7, 20], [9, 13, 10]]: 0.013427972793579102
+topology_expansion_[['mod', 'acosh', 'acosh', 'ceil', 'batch_matmul', 'subtract', 'acos']]_[[10, 15, 5], [10, 20, 3], [10, 15, 5], [10, 5, 1]]: 0.017351388931274414
+topology_expansion_[['asinh', 'multiply', 'exp']]_[[11, 8, 3]]: 1.3827309608459473
+topology_expansion_[['acosh', 'ceil', 'add', 'cos']]_[[3, 9, 3]]: 1.365452766418457
+topology_expansion_[['asinh', 'acos', 'ceil', 'sin']]_[[14, 17, 9]]: 1.3721632957458496
+topology_expansion_[['divide', 'subtract', 'multiply', 'asinh', 'atanh']]_[[19, 15, 9], [19, 12, 17], [19, 15, 9]]: 0.014508485794067383
+topology_expansion_[['asinh', 'atan', 'cos', 'asinh', 'acosh']]_[[16, 18, 10]]: 1.4132187366485596
+topology_expansion_[['cos', 'divide', 'atanh']]_[[11, 2, 8]]: 1.3946328163146973
+topology_expansion_[['sin', 'asinh', 'atan', 'asinh']]_[[4, 1, 19]]: 1.4084346294403076
+topology_expansion_[['subtract', 'acos', 'ceil', 'mod', 'ceil']]_[[20, 14, 4], [12, 10, 16], [20, 14, 4]]: 0.014782905578613281
+topology_expansion_[['subtract', 'multiply', 'multiply', 'mod', 'ceil']]_[[16, 19, 8], [18, 11, 11], [16, 19, 8]]: 0.016574859619140625
+topology_expansion_[['cos', 'acosh', 'ceil', 'sin', 'abs', 'divide']]_[[1, 7, 11]]: 1.4859442710876465
+topology_expansion_[['multiply', 'atanh', 'ceil']]_[[10, 2, 1], [4, 2, 7], [10, 2, 1]]: 0.01248311996459961
+topology_expansion_[['cos', 'add', 'atanh']]_[[8, 1, 18]]: 1.3721427917480469
+topology_expansion_[['acosh', 'asinh', 'mod', 'cos', 'mod']]_[[2, 12, 20]]: 1.4230151176452637
+topology_expansion_[['ceil', 'asin', 'abs', 'asin', 'multiply', 'asinh']]_[[9, 10, 5]]: 1.4697229862213135
+topology_expansion_[['abs', 'acosh', 'add', 'exp', 'sin', 'acos']]_[[16, 8, 2]]: 1.4870898723602295
+topology_expansion_[['abs', 'cos', 'asinh', 'subtract', 'atanh', 'asin']]_[[1, 15, 2]]: 1.4064695835113525
+topology_expansion_[['atanh', 'atan', 'cos', 'atan']]_[[9, 12, 16]]: 1.4281108379364014
+topology_expansion_[['add', 'atan']]_[[1, 14, 4], [14, 17, 6], [1, 14, 4]]: 0.01149129867553711
+topology_expansion_[['divide', 'asinh', 'subtract', 'abs', 'exp']]_[[18, 1, 10], [16, 1, 3], [18, 1, 10]]: 0.012398242950439453
+topology_expansion_[['divide', 'divide', 'cos', 'asinh', 'acos', 'asinh']]_[[15, 18, 5], [8, 9, 2], [15, 18, 5]]: 0.014324426651000977
+topology_expansion_[['add', 'acos', 'sin', 'cos', 'abs', 'multiply']]_[[8, 12, 16], [2, 9, 7], [8, 12, 16]]: 0.014631509780883789
+topology_expansion_[['mod', 'sin', 'ceil', 'asinh']]_[[14, 2, 1], [20, 9, 19], [14, 2, 1]]: 0.016579151153564453
+topology_expansion_[['asinh', 'sin', 'mod']]_[[4, 3, 17]]: 1.4038853645324707

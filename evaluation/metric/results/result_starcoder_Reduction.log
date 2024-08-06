@@ -1,0 +1,14 @@
+2024-08-01 12:46:58 INFO: global_pool_max_[11, 2, 4, 1]_[[11, 2, 4, 1]] COMPILE PASS
+2024-08-01 12:46:58 INFO: global_pool_max_[11, 2, 4, 1]_[[11, 2, 4, 1]] EXEC PASS
+2024-08-01 12:47:01 INFO: global_pool_avg_[5, 8, 15, 15]_[[5, 8, 15, 15]] COMPILE PASS
+2024-08-01 12:47:04 INFO: sum_[13, 15, 18, 17]_[[13, 15, 18, 17]] COMPILE PASS
+2024-08-01 12:47:17 INFO: softmax_[17, 4, 4, 1]_[[17, 4, 4, 1]] COMPILE PASS
+2024-08-01 12:47:17 INFO: softmax_[17, 4, 4, 1]_[[17, 4, 4, 1]] EXEC PASS
+2024-08-01 12:47:24 INFO: softmax_common_[18, 12, 14, 3]_[[18, 12, 14, 3]] COMPILE PASS
+2024-08-01 12:47:27 INFO: prod_[15, 20, 3, 7]_[[15, 20, 3, 7]] COMPILE PASS
+2024-08-01 12:47:27 INFO: prod_[15, 20, 3, 7]_[[15, 20, 3, 7]] EXEC PASS
+2024-08-01 12:47:33 INFO: pool1d_[19, 1, 5, 11]_[[19, 1, 11]] COMPILE PASS
+2024-08-01 12:47:33 INFO: pool1d_[19, 1, 5, 11]_[[19, 1, 11]] EXEC PASS
+2024-08-01 12:47:37 INFO: pool2d_[11, 3, 18, 4]_[[11, 3, 18, 12]] COMPILE PASS
+2024-08-01 12:47:41 INFO: adaptive_pool_max_[15, 17, 5, 16]_[[15, 17, 5, 16]] COMPILE PASS
+2024-08-01 12:47:44 INFO: adaptive_pool_avg_[15, 13, 1, 2]_[[15, 13, 1, 2]] COMPILE PASS

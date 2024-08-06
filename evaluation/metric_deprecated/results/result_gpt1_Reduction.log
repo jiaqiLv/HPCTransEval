@@ -1,0 +1,4 @@
+2024-07-31 11:13:18 INFO: global_pool_avg_[5, 8, 15, 15]_[[5, 8, 15, 15]] COMPILE PASS
+2024-07-31 11:13:21 INFO: sum_[13, 15, 18, 17]_[[13, 15, 18, 17]] COMPILE PASS
+2024-07-31 11:13:27 INFO: rms_norm_[8, 10, 12, 14]_[[8, 10, 12, 14], [14]] COMPILE PASS
+2024-07-31 11:13:57 INFO: adaptive_pool_avg_[15, 13, 1, 2]_[[15, 13, 1, 2]] COMPILE PASS

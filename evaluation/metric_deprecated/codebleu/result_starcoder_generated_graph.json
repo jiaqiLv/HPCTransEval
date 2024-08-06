@@ -1,0 +1,632 @@
+[
+    {
+        "topology_expansion_[['abs', 'asinh', 'exp', 'ceil', 'ceil']]_[[1, 9, 2]]": {
+            "codebleu": 0.817940119426013,
+            "ngram_match_score": 0.8835308119273485,
+            "weighted_ngram_match_score": 0.8866134447952163,
+            "syntax_match_score": 0.8674698795180723,
+            "dataflow_match_score": 0.6341463414634146
+        }
+    },
+    {
+        "topology_expansion_[['exp', 'atanh']]_[[13, 17, 7]]": {
+            "codebleu": 0.6032792110592841,
+            "ngram_match_score": 0.5444131951791265,
+            "weighted_ngram_match_score": 0.571107495211856,
+            "syntax_match_score": 0.9538461538461539,
+            "dataflow_match_score": 0.34375
+        }
+    },
+    {
+        "topology_expansion_[['multiply', 'abs', 'atanh']]_[[19, 20, 18], [9, 19, 17], [19, 20, 18]]": {
+            "codebleu": 0.5486574283235993,
+            "ngram_match_score": 0.5015502474079584,
+            "weighted_ngram_match_score": 0.5302819342966651,
+            "syntax_match_score": 0.6506024096385542,
+            "dataflow_match_score": 0.5121951219512195
+        }
+    },
+    {
+        "topology_expansion_[['atan', 'atan', 'abs', 'atan']]_[[6, 3, 7]]": {
+            "codebleu": 0.38493818727900353,
+            "ngram_match_score": 0.29895813000301813,
+            "weighted_ngram_match_score": 0.35897643729481404,
+            "syntax_match_score": 0.5545454545454546,
+            "dataflow_match_score": 0.32727272727272727
+        }
+    },
+    {
+        "topology_expansion_[['divide', 'add', 'exp', 'acosh', 'atanh', 'atan']]_[[20, 13, 9], [16, 4, 9], [20, 13, 9]]": {
+            "codebleu": 0.5286232923059059,
+            "ngram_match_score": 0.4511090159531436,
+            "weighted_ngram_match_score": 0.4624112910072951,
+            "syntax_match_score": 0.6612903225806451,
+            "dataflow_match_score": 0.5396825396825397
+        }
+    },
+    {
+        "topology_expansion_[['sin', 'atanh', 'mod', 'acosh', 'sin', 'asinh']]_[[16, 10, 8]]": {
+            "codebleu": 0.6821145933360983,
+            "ngram_match_score": 0.6705884857747847,
+            "weighted_ngram_match_score": 0.6871006568003772,
+            "syntax_match_score": 0.89,
+            "dataflow_match_score": 0.4807692307692308
+        }
+    },
+    {
+        "topology_expansion_[['atanh', 'ceil', 'acosh', 'ceil', 'ceil']]_[[15, 10, 18]]": {
+            "codebleu": 0.6403739590070866,
+            "ngram_match_score": 0.6509563936678827,
+            "weighted_ngram_match_score": 0.6678418478587459,
+            "syntax_match_score": 0.7010309278350515,
+            "dataflow_match_score": 0.5416666666666666
+        }
+    },
+    {
+        "topology_expansion_[['asinh', 'asin', 'atanh', 'sin']]_[[2, 11, 7]]": {
+            "codebleu": 0.6870742778203252,
+            "ngram_match_score": 0.5284075984927302,
+            "weighted_ngram_match_score": 0.7773761438046134,
+            "syntax_match_score": 0.8970588235294118,
+            "dataflow_match_score": 0.5454545454545454
+        }
+    },
+    {
+        "topology_expansion_[['ceil', 'asin', 'atanh', 'acos', 'sin', 'exp', 'asin']]_[[9, 11, 6]]": {
+            "codebleu": 0.5936034402103865,
+            "ngram_match_score": 0.6065221446127398,
+            "weighted_ngram_match_score": 0.6213398920908751,
+            "syntax_match_score": 0.7844827586206896,
+            "dataflow_match_score": 0.3620689655172414
+        }
+    },
+    {
+        "topology_expansion_[['atanh', 'asin', 'atanh', 'abs', 'asin']]_[[2, 5, 15]]": {
+            "codebleu": 0.7487706061496877,
+            "ngram_match_score": 0.8181445104227223,
+            "weighted_ngram_match_score": 0.8228385900502574,
+            "syntax_match_score": 0.963855421686747,
+            "dataflow_match_score": 0.3902439024390244
+        }
+    },
+    {
+        "topology_expansion_[['atan', 'cos', 'add', 'exp']]_[[16, 17, 4]]": {
+            "codebleu": 0.4524957804010643,
+            "ngram_match_score": 0.3573342089170368,
+            "weighted_ngram_match_score": 0.3823192423575502,
+            "syntax_match_score": 0.6703296703296703,
+            "dataflow_match_score": 0.4
+        }
+    },
+    {
+        "topology_expansion_[['ceil', 'mod', 'asinh', 'atan', 'batch_matmul']]_[[20, 8, 8]]": {
+            "codebleu": 0.2508929108109271,
+            "ngram_match_score": 0.09917769253712047,
+            "weighted_ngram_match_score": 0.1445789969681531,
+            "syntax_match_score": 0.5232558139534884,
+            "dataflow_match_score": 0.23655913978494625
+        }
+    },
+    {
+        "topology_expansion_[['divide', 'atan', 'cos', 'subtract']]_[[9, 13, 10], [17, 7, 20], [9, 13, 10]]": {
+            "codebleu": 1.0,
+            "ngram_match_score": 1.0,
+            "weighted_ngram_match_score": 1.0,
+            "syntax_match_score": 1.0,
+            "dataflow_match_score": 1.0
+        }
+    },
+    {
+        "topology_expansion_[['mod', 'acosh', 'acosh', 'ceil', 'batch_matmul', 'subtract', 'acos']]_[[10, 15, 5], [10, 20, 3], [10, 15, 5], [10, 5, 1]]": {
+            "codebleu": 0.017200773516116565,
+            "ngram_match_score": 2.700697906775118e-09,
+            "weighted_ngram_match_score": 0.0021364246971016894,
+            "syntax_match_score": 0.0,
+            "dataflow_match_score": 0.06666666666666667
+        }
+    },
+    {
+        "topology_expansion_[['asinh', 'multiply', 'exp']]_[[11, 8, 3]]": {
+            "codebleu": 0.3377402759996321,
+            "ngram_match_score": 0.20712251698164208,
+            "weighted_ngram_match_score": 0.26764811082641005,
+            "syntax_match_score": 0.4,
+            "dataflow_match_score": 0.47619047619047616
+        }
+    },
+    {
+        "topology_expansion_[['acosh', 'ceil', 'add', 'cos']]_[[3, 9, 3]]": {
+            "codebleu": 0.5220961041743057,
+            "ngram_match_score": 0.42761448329717705,
+            "weighted_ngram_match_score": 0.483521256151369,
+            "syntax_match_score": 0.7142857142857143,
+            "dataflow_match_score": 0.46296296296296297
+        }
+    },
+    {
+        "topology_expansion_[['acos', 'cos', 'asinh', 'sin', 'atan']]_[[19, 17, 15]]": {
+            "codebleu": 0.7254687385816527,
+            "ngram_match_score": 0.6518630107827496,
+            "weighted_ngram_match_score": 0.7601064452620742,
+            "syntax_match_score": 0.9690721649484536,
+            "dataflow_match_score": 0.5208333333333334
+        }
+    },
+    {
+        "topology_expansion_[['asinh', 'acos', 'ceil', 'sin']]_[[14, 17, 9]]": {
+            "codebleu": 0.6405872234914324,
+            "ngram_match_score": 0.5524788561936108,
+            "weighted_ngram_match_score": 0.6036200377721188,
+            "syntax_match_score": 0.7604166666666666,
+            "dataflow_match_score": 0.6458333333333334
+        }
+    },
+    {
+        "topology_expansion_[['divide', 'subtract', 'multiply', 'asinh', 'atanh']]_[[19, 15, 9], [19, 12, 17], [19, 15, 9]]": {
+            "codebleu": 0.7534667624737565,
+            "ngram_match_score": 0.714268692014618,
+            "weighted_ngram_match_score": 0.8782500432736667,
+            "syntax_match_score": 0.9213483146067416,
+            "dataflow_match_score": 0.5
+        }
+    },
+    {
+        "topology_expansion_[['asinh', 'atan', 'cos', 'asinh', 'acosh']]_[[16, 18, 10]]": {
+            "codebleu": 0.5450055289892601,
+            "ngram_match_score": 0.5328767951722847,
+            "weighted_ngram_match_score": 0.5696034932429281,
+            "syntax_match_score": 0.6846846846846847,
+            "dataflow_match_score": 0.39285714285714285
+        }
+    },
+    {
+        "topology_expansion_[['cos', 'divide', 'atanh']]_[[11, 2, 8]]": {
+            "codebleu": 1.0,
+            "ngram_match_score": 1.0,
+            "weighted_ngram_match_score": 1.0,
+            "syntax_match_score": 1.0,
+            "dataflow_match_score": 1.0
+        }
+    },
+    {
+        "topology_expansion_[['sin', 'asinh', 'atan', 'asinh']]_[[4, 1, 19]]": {
+            "codebleu": 0.6001504320720092,
+            "ngram_match_score": 0.5742678096589984,
+            "weighted_ngram_match_score": 0.5946266015558682,
+            "syntax_match_score": 0.8902439024390244,
+            "dataflow_match_score": 0.34146341463414637
+        }
+    },
+    {
+        "topology_expansion_[['subtract', 'acos', 'ceil', 'mod', 'ceil']]_[[20, 14, 4], [12, 10, 16], [20, 14, 4]]": {
+            "codebleu": 0.5059902485297159,
+            "ngram_match_score": 0.4440784388436593,
+            "weighted_ngram_match_score": 0.4559816759786411,
+            "syntax_match_score": 0.5683453237410072,
+            "dataflow_match_score": 0.5555555555555556
+        }
+    },
+    {
+        "topology_expansion_[['subtract', 'multiply', 'multiply', 'mod', 'ceil']]_[[16, 19, 8], [18, 11, 11], [16, 19, 8]]": {
+            "codebleu": 0.861396122289313,
+            "ngram_match_score": 0.7375210489092469,
+            "weighted_ngram_match_score": 0.8931824878670525,
+            "syntax_match_score": 0.8482142857142857,
+            "dataflow_match_score": 0.9666666666666667
+        }
+    },
+    {
+        "topology_expansion_[['cos', 'acosh', 'ceil', 'sin', 'abs', 'divide']]_[[1, 7, 11]]": {
+            "codebleu": 0.8161007892739357,
+            "ngram_match_score": 0.8687993677278626,
+            "weighted_ngram_match_score": 0.8723479754143916,
+            "syntax_match_score": 0.9651162790697675,
+            "dataflow_match_score": 0.5581395348837209
+        }
+    },
+    {
+        "topology_expansion_[['multiply', 'atanh', 'ceil']]_[[10, 2, 1], [4, 2, 7], [10, 2, 1]]": {
+            "codebleu": 0.7299951731742559,
+            "ngram_match_score": 0.5873601046013431,
+            "weighted_ngram_match_score": 0.6068604045041714,
+            "syntax_match_score": 0.963855421686747,
+            "dataflow_match_score": 0.7619047619047619
+        }
+    },
+    {
+        "topology_expansion_[['cos', 'add', 'atanh']]_[[8, 1, 18]]": {
+            "codebleu": 0.3377402759996321,
+            "ngram_match_score": 0.20712251698164208,
+            "weighted_ngram_match_score": 0.26764811082641005,
+            "syntax_match_score": 0.4,
+            "dataflow_match_score": 0.47619047619047616
+        }
+    },
+    {
+        "topology_expansion_[['ceil']]_[[10, 17, 20]]": {
+            "codebleu": 0.39890441440998925,
+            "ngram_match_score": 0.08518452753849286,
+            "weighted_ngram_match_score": 0.27810989777823175,
+            "syntax_match_score": 0.45454545454545453,
+            "dataflow_match_score": 0.7777777777777778
+        }
+    },
+    {
+        "topology_expansion_[['acosh', 'asinh', 'mod', 'cos', 'mod']]_[[2, 12, 20]]": {
+            "codebleu": 0.39689982243595706,
+            "ngram_match_score": 0.2797144933184005,
+            "weighted_ngram_match_score": 0.3492875113575545,
+            "syntax_match_score": 0.5615384615384615,
+            "dataflow_match_score": 0.39705882352941174
+        }
+    },
+    {
+        "topology_expansion_[['ceil', 'asin', 'abs', 'asin', 'multiply', 'asinh']]_[[9, 10, 5]]": {
+            "codebleu": 0.7261552996886057,
+            "ngram_match_score": 0.7960468306832142,
+            "weighted_ngram_match_score": 0.8026960358770868,
+            "syntax_match_score": 0.7532467532467533,
+            "dataflow_match_score": 0.5526315789473685
+        }
+    },
+    {
+        "topology_expansion_[['abs', 'acosh', 'add', 'exp', 'sin', 'acos']]_[[16, 8, 2]]": {
+            "codebleu": 0.527823224435245,
+            "ngram_match_score": 0.46792465501385433,
+            "weighted_ngram_match_score": 0.5060801071339054,
+            "syntax_match_score": 0.7372881355932204,
+            "dataflow_match_score": 0.4
+        }
+    },
+    {
+        "topology_expansion_[['abs', 'cos', 'asinh', 'subtract', 'atanh', 'asin']]_[[1, 15, 2]]": {
+            "codebleu": 0.7206163137611883,
+            "ngram_match_score": 0.6253268758037215,
+            "weighted_ngram_match_score": 0.6568248996172074,
+            "syntax_match_score": 0.8275862068965517,
+            "dataflow_match_score": 0.7727272727272727
+        }
+    },
+    {
+        "topology_expansion_[['atanh', 'atan', 'cos', 'atan']]_[[9, 12, 16]]": {
+            "codebleu": 0.4031200054608217,
+            "ngram_match_score": 0.29895813000301813,
+            "weighted_ngram_match_score": 0.35897643729481404,
+            "syntax_match_score": 0.5909090909090909,
+            "dataflow_match_score": 0.36363636363636365
+        }
+    },
+    {
+        "topology_expansion_[['add', 'atan']]_[[1, 14, 4], [14, 17, 6], [1, 14, 4]]": {
+            "codebleu": 0.8736077257980226,
+            "ngram_match_score": 0.8037145959941677,
+            "weighted_ngram_match_score": 0.8440809394357942,
+            "syntax_match_score": 0.9577464788732394,
+            "dataflow_match_score": 0.8888888888888888
+        }
+    },
+    {
+        "topology_expansion_[['divide', 'asinh', 'subtract', 'abs', 'exp']]_[[18, 1, 10], [16, 1, 3], [18, 1, 10]]": {
+            "codebleu": 0.05501888415263575,
+            "ngram_match_score": 0.00011813765816864624,
+            "weighted_ngram_match_score": 0.0056716846666600785,
+            "syntax_match_score": 0.0,
+            "dataflow_match_score": 0.21428571428571427
+        }
+    },
+    {
+        "topology_expansion_[['divide', 'divide', 'cos', 'asinh', 'acos', 'asinh']]_[[15, 18, 5], [8, 9, 2], [15, 18, 5]]": {
+            "codebleu": 0.6585914708301904,
+            "ngram_match_score": 0.5802798158015112,
+            "weighted_ngram_match_score": 0.6284046623102864,
+            "syntax_match_score": 0.7795275590551181,
+            "dataflow_match_score": 0.6461538461538462
+        }
+    },
+    {
+        "topology_expansion_[['acos', 'atan', 'multiply', 'ceil', 'mod']]_[[10, 5, 12]]": {
+            "codebleu": 0.04702884687571169,
+            "ngram_match_score": 7.11104618102771e-05,
+            "weighted_ngram_match_score": 0.006226095222854669,
+            "syntax_match_score": 0.0,
+            "dataflow_match_score": 0.18181818181818182
+        }
+    },
+    {
+        "topology_expansion_[['add', 'acos', 'sin', 'cos', 'abs', 'multiply']]_[[8, 12, 16], [2, 9, 7], [8, 12, 16]]": {
+            "codebleu": 0.7759848103833005,
+            "ngram_match_score": 0.849866192003456,
+            "weighted_ngram_match_score": 0.853690823060563,
+            "syntax_match_score": 0.8351648351648352,
+            "dataflow_match_score": 0.5652173913043478
+        }
+    },
+    {
+        "topology_expansion_[['mod', 'sin', 'ceil', 'asinh']]_[[14, 2, 1], [20, 9, 19], [14, 2, 1]]": {
+            "codebleu": 0.4510943936347861,
+            "ngram_match_score": 0.3446917408320355,
+            "weighted_ngram_match_score": 0.37161565826851223,
+            "syntax_match_score": 0.6933333333333334,
+            "dataflow_match_score": 0.39473684210526316
+        }
+    },
+    {
+        "topology_expansion_[['asinh', 'sin', 'mod']]_[[4, 3, 17]]": {
+            "codebleu": 0.31200373560360606,
+            "ngram_match_score": 0.18711843932715977,
+            "weighted_ngram_match_score": 0.2519625691533304,
+            "syntax_match_score": 0.4305555555555556,
+            "dataflow_match_score": 0.3783783783783784
+        }
+    },
+    {
+        "graph_1_None_[[11, 22, 33, 44], [11, 22, 44, 33]]": {
+            "codebleu": 0.3338670061765938,
+            "ngram_match_score": 0.14072638405662827,
+            "weighted_ngram_match_score": 0.32743129582216096,
+            "syntax_match_score": 0.488,
+            "dataflow_match_score": 0.3793103448275862
+        }
+    },
+    {
+        "graph_2_None_[[4, 5, 6], [20, 6]]": {
+            "codebleu": 0.13826718029613616,
+            "ngram_match_score": 0.017044825420924996,
+            "weighted_ngram_match_score": 0.05514162079499056,
+            "syntax_match_score": 0.4021897810218978,
+            "dataflow_match_score": 0.07869249394673124
+        }
+    },
+    {
+        "graph_3_None_[[4, 16, 32, 32]]": {
+            "codebleu": 0.045810146531291854,
+            "ngram_match_score": 4.391419981691671e-06,
+            "weighted_ngram_match_score": 0.026873634547583,
+            "syntax_match_score": 0.13890117667875784,
+            "dataflow_match_score": 0.017461383478844864
+        }
+    },
+    {
+        "graph_4_None_[[10, 20, 3, 4]]": {
+            "codebleu": 0.2954524464510458,
+            "ngram_match_score": 0.26379390586514606,
+            "weighted_ngram_match_score": 0.32201224264276057,
+            "syntax_match_score": 0.3752244165170557,
+            "dataflow_match_score": 0.22077922077922077
+        }
+    },
+    {
+        "graph_5_None_[[10, 20, 32, 4], [4, 32, 120]]": {
+            "codebleu": 0.3910454715456906,
+            "ngram_match_score": 0.09370232294521988,
+            "weighted_ngram_match_score": 0.25720656172924666,
+            "syntax_match_score": 0.6235294117647059,
+            "dataflow_match_score": 0.5897435897435898
+        }
+    },
+    {
+        "graph_6_None_[[11, 22, 33, 44]]": {
+            "codebleu": 0.28641780470133227,
+            "ngram_match_score": 0.14592099366607214,
+            "weighted_ngram_match_score": 0.20412218905320548,
+            "syntax_match_score": 0.5229007633587787,
+            "dataflow_match_score": 0.2727272727272727
+        }
+    },
+    {
+        "graph_7_None_[[11, 22, 33, 44], [22, 33, 44, 55]]": {
+            "codebleu": 0.13055820239407173,
+            "ngram_match_score": 0.0078018773991438235,
+            "weighted_ngram_match_score": 0.04694409533939094,
+            "syntax_match_score": 0.40290758047767394,
+            "dataflow_match_score": 0.06457925636007827
+        }
+    },
+    {
+        "graph_8_None_[[11, 22, 33, 44], [22, 33, 44, 55]]": {
+            "codebleu": 0.3949904512446583,
+            "ngram_match_score": 0.2043037900821889,
+            "weighted_ngram_match_score": 0.281331953675406,
+            "syntax_match_score": 0.7363013698630136,
+            "dataflow_match_score": 0.35802469135802467
+        }
+    },
+    {
+        "graph_9_None_[[11, 22, 33, 44], [22, 33, 44, 55]]": {
+            "codebleu": 0.08782653764646582,
+            "ngram_match_score": 5.531251023818697e-06,
+            "weighted_ngram_match_score": 0.03918965164577847,
+            "syntax_match_score": 0.2737967914438503,
+            "dataflow_match_score": 0.038314176245210725
+        }
+    },
+    {
+        "graph_10_None_[[23, 45, 12]]": {
+            "codebleu": 0.18290029539193786,
+            "ngram_match_score": 0.10484202954033997,
+            "weighted_ngram_match_score": 0.11424491607912986,
+            "syntax_match_score": 0.34980237154150196,
+            "dataflow_match_score": 0.16271186440677965
+        }
+    },
+    {
+        "graph_11_None_[[23, 45, 12], [12, 45, 23]]": {
+            "codebleu": 0.17370347410549247,
+            "ngram_match_score": 0.006260279201312634,
+            "weighted_ngram_match_score": 0.04915054290390785,
+            "syntax_match_score": 0.5617977528089888,
+            "dataflow_match_score": 0.07760532150776053
+        }
+    },
+    {
+        "graph_12_None_[[23, 5, 12]]": {
+            "codebleu": 0.2005827734038145,
+            "ngram_match_score": 0.16374558159558392,
+            "weighted_ngram_match_score": 0.19605268493535202,
+            "syntax_match_score": 0.29457364341085274,
+            "dataflow_match_score": 0.14795918367346939
+        }
+    },
+    {
+        "graph_13_None_[[1, 45, 12], [32]]": {
+            "codebleu": 0.16173834229173928,
+            "ngram_match_score": 0.05967506367971824,
+            "weighted_ngram_match_score": 0.1163617091836457,
+            "syntax_match_score": 0.3358288770053476,
+            "dataflow_match_score": 0.13508771929824562
+        }
+    },
+    {
+        "graph_14_None_[[1, 33, 1, 44]]": {
+            "codebleu": 0.12699285494616874,
+            "ngram_match_score": 0.0294635007040159,
+            "weighted_ngram_match_score": 0.06176448659988923,
+            "syntax_match_score": 0.32539142273655547,
+            "dataflow_match_score": 0.09135200974421437
+        }
+    },
+    {
+        "graph_15_None_[[11, 22, 33, 44], [22, 33, 44, 55]]": {
+            "codebleu": 0.1527438889018885,
+            "ngram_match_score": 0.015415519828318357,
+            "weighted_ngram_match_score": 0.04856359795540152,
+            "syntax_match_score": 0.47668393782383417,
+            "dataflow_match_score": 0.0703125
+        }
+    },
+    {
+        "graph_16_None_[[4, 16, 32, 32]]": {
+            "codebleu": 0.04800944943937642,
+            "ngram_match_score": 6.478872314073174e-12,
+            "weighted_ngram_match_score": 0.008729827739640813,
+            "syntax_match_score": 0.18216432865731463,
+            "dataflow_match_score": 0.0011436413540713633
+        }
+    },
+    {
+        "graph_17_None_[[11, 22, 6, 7]]": {
+            "codebleu": 0.22929097558267064,
+            "ngram_match_score": 0.13186852057335083,
+            "weighted_ngram_match_score": 0.15720547562017562,
+            "syntax_match_score": 0.496683861459101,
+            "dataflow_match_score": 0.1314060446780552
+        }
+    },
+    {
+        "graph_18_None_[[11, 22, 33, 44], [10, 10]]": {
+            "codebleu": 0.3267476161316304,
+            "ngram_match_score": 0.10419889772669486,
+            "weighted_ngram_match_score": 0.16393018066121284,
+            "syntax_match_score": 0.6138613861386139,
+            "dataflow_match_score": 0.425
+        }
+    },
+    {
+        "graph_19_None_[[23, 5, 12]]": {
+            "codebleu": 0.2296834075298396,
+            "ngram_match_score": 0.23679578674699636,
+            "weighted_ngram_match_score": 0.2463791525068027,
+            "syntax_match_score": 0.32803180914512925,
+            "dataflow_match_score": 0.10752688172043011
+        }
+    },
+    {
+        "graph_20_None_[[23, 5, 12]]": {
+            "codebleu": 0.3342300712197047,
+            "ngram_match_score": 0.19648019930511457,
+            "weighted_ngram_match_score": 0.21658563813435114,
+            "syntax_match_score": 0.5786163522012578,
+            "dataflow_match_score": 0.34523809523809523
+        }
+    },
+    {
+        "graph_21_None_[[23, 5, 12]]": {
+            "codebleu": 0.15611376837702431,
+            "ngram_match_score": 0.012663328669911123,
+            "weighted_ngram_match_score": 0.06502692401341931,
+            "syntax_match_score": 0.4203056768558952,
+            "dataflow_match_score": 0.1264591439688716
+        }
+    },
+    {
+        "graph_22_None_[[1, 45, 12]]": {
+            "codebleu": 0.1968531514051558,
+            "ngram_match_score": 0.18513424684535476,
+            "weighted_ngram_match_score": 0.20148732383789214,
+            "syntax_match_score": 0.2926829268292683,
+            "dataflow_match_score": 0.10810810810810811
+        }
+    },
+    {
+        "graph_23_None_[[23, 5, 12]]": {
+            "codebleu": 0.1120276529885667,
+            "ngram_match_score": 0.017071036638340788,
+            "weighted_ngram_match_score": 0.047949473793083446,
+            "syntax_match_score": 0.2893401015228426,
+            "dataflow_match_score": 0.09375
+        }
+    },
+    {
+        "graph_24_None_[[11, 22, 33, 44], [22, 33, 44, 55]]": {
+            "codebleu": 0.41582858477348267,
+            "ngram_match_score": 0.3270294024963977,
+            "weighted_ngram_match_score": 0.33704782948737116,
+            "syntax_match_score": 0.6371681415929203,
+            "dataflow_match_score": 0.3620689655172414
+        }
+    },
+    {
+        "graph_25_None_[[3, 45, 12]]": {
+            "codebleu": 0.4083031364186546,
+            "ngram_match_score": 0.1768007302896974,
+            "weighted_ngram_match_score": 0.28974514871825435,
+            "syntax_match_score": 0.46296296296296297,
+            "dataflow_match_score": 0.7037037037037037
+        }
+    },
+    {
+        "graph_26_None_[[4, 16, 32, 32]]": {
+            "codebleu": 0.08510266564816535,
+            "ngram_match_score": 0.044907270665770535,
+            "weighted_ngram_match_score": 0.1057216324923127,
+            "syntax_match_score": 0.134535705581282,
+            "dataflow_match_score": 0.055246053853296194
+        }
+    },
+    {
+        "graph_27_None_[[4, 5, 6, 7]]": {
+            "codebleu": 0.2502198166447818,
+            "ngram_match_score": 0.26341642621012573,
+            "weighted_ngram_match_score": 0.31004634388804825,
+            "syntax_match_score": 0.16759776536312848,
+            "dataflow_match_score": 0.2598187311178248
+        }
+    },
+    {
+        "graph_28_None_[[43, 54, 16, 17]]": {
+            "codebleu": 0.22758181168650338,
+            "ngram_match_score": 0.24272145378678542,
+            "weighted_ngram_match_score": 0.25376614143035414,
+            "syntax_match_score": 0.2641221374045801,
+            "dataflow_match_score": 0.1497175141242938
+        }
+    },
+    {
+        "graph_29_None_[[11, 22, 33, 44]]": {
+            "codebleu": 0.4806366558736392,
+            "ngram_match_score": 0.1514527180917736,
+            "weighted_ngram_match_score": 0.5286696629785407,
+            "syntax_match_score": 0.5454545454545454,
+            "dataflow_match_score": 0.696969696969697
+        }
+    },
+    {
+        "graph_30_None_[[11, 22, 33, 44]]": {
+            "codebleu": 0.4568349736535516,
+            "ngram_match_score": 0.16313713994919246,
+            "weighted_ngram_match_score": 0.4642027546650138,
+            "syntax_match_score": 0.5,
+            "dataflow_match_score": 0.7
+        }
+    }
+]

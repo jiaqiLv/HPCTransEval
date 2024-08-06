@@ -1,0 +1,12 @@
+2024-07-29 15:35:18 INFO: fifo_buffer_[15, 17, 7, 18]_[[15, 17, 7, 18], [15, 17, 7, 18]] COMPILE PASS
+2024-07-29 15:35:21 INFO: multi_out_op_[4, 17, 12, 17]_[[4, 17, 12, 17], [4, 17, 12, 17], [4, 17, 12, 17]] COMPILE PASS
+2024-07-29 15:35:24 INFO: shape_[14, 5, 1, 11]_[[14, 5, 1, 11]] COMPILE PASS
+2024-07-29 15:35:24 INFO: shape_[14, 5, 1, 11]_[[14, 5, 1, 11]] EXEC PASS
+2024-07-29 15:35:27 INFO: upsampling_[11, 1, 10, 9]_[[11, 1, 20, 18]] COMPILE PASS
+2024-07-29 15:35:30 INFO: resize2d_None_[[4, 16, 32, 32]] COMPILE PASS
+2024-07-29 15:35:31 INFO: resize2d_None_[[4, 16, 32, 32]] EXEC PASS
+2024-07-29 15:35:34 INFO: resize3d_None_[[3, 16, 32, 32, 32]] COMPILE PASS
+2024-07-29 15:35:34 INFO: resize3d_None_[[3, 16, 32, 32, 32]] EXEC PASS
+2024-07-29 15:35:38 INFO: grid_sample_None_[[4, 4, 8, 8], [4, 2, 16, 16]] COMPILE PASS
+2024-07-29 15:35:41 INFO: argsort_None_[[64, 512]] COMPILE PASS
+2024-07-29 15:35:41 INFO: argsort_None_[[64, 512]] EXEC PASS

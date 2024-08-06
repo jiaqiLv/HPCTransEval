@@ -1,0 +1,128 @@
+[
+    {
+        "op_name": "batch_to_space_nd",
+        "c_code": "void default_function_kernel(float* T_strided_slice, float* data) {\n  #pragma omp parallel for\n  for (int32_t ax0 = 0; ax0 < 3; ++ax0) {\n    float T_transpose[3040];\n    float T_reshape[80];\n    for (int32_t ax1 = 0; ax1 < 19; ++ax1) {\n      for (int32_t ax2 = 0; ax2 < 2; ++ax2) {\n        for (int32_t ax1_1 = 0; ax1_1 < 2; ++ax1_1) {\n          for (int32_t ax4 = 0; ax4 < 2; ++ax4) {\n            for (int32_t ax5 = 0; ax5 < 20; ++ax5) {\n              T_reshape[(((ax1_1 * 40) + (ax4 * 20)) + ax5)] = data[((((((ax2 * 4560) + (ax1_1 * 2280)) + (ax0 * 760)) + (ax1 * 40)) + (ax4 * 20)) + ax5)];\n            }\n          }\n        }\n        for (int32_t ax3 = 0; ax3 < 2; ++ax3) {\n          for (int32_t ax4_1 = 0; ax4_1 < 2; ++ax4_1) {\n            for (int32_t ax5_1 = 0; ax5_1 < 20; ++ax5_1) {\n              T_transpose[(((((ax1 * 160) + (ax2 * 80)) + (ax3 * 40)) + (ax4_1 * 20)) + ax5_1)] = T_reshape[(((ax4_1 * 40) + (ax3 * 20)) + ax5_1)];\n            }\n          }\n        }\n      }\n    }\n    for (int32_t ax1_2 = 0; ax1_2 < 38; ++ax1_2) {\n      for (int32_t ax2_1 = 0; ax2_1 < 4; ++ax2_1) {\n        for (int32_t ax3_1 = 0; ax3_1 < 20; ++ax3_1) {\n          T_strided_slice[((((ax0 * 3040) + (ax1_2 * 80)) + (ax2_1 * 20)) + ax3_1)] = T_transpose[(((ax1_2 * 80) + (ax2_1 * 20)) + ax3_1)];\n        }\n      }\n    }\n  }\n}\n\n",
+        "cuda_code": "extern \"C\" __global__ void __launch_bounds__(24) default_function_kernel(float* __restrict__ T_strided_slice, float* __restrict__ data) {\n  T_strided_slice[((((int)blockIdx.x) * 24) + ((int)threadIdx.x))] = data[(((((((((((int)blockIdx.x) * 3) + (((int)threadIdx.x) >> 3)) % 20) / 10) * 4560) + (((((((int)blockIdx.x) * 6) + (((int)threadIdx.x) >> 2)) % 10) / 5) * 2280)) + ((((((int)blockIdx.x) * 3) + (((int)threadIdx.x) >> 3)) / 20) * 40)) + (((((((int)blockIdx.x) * 3) + (((int)threadIdx.x) >> 3)) % 10) / 5) * 20)) + (((((int)blockIdx.x) * 4) + ((int)threadIdx.x)) % 20))];\n}\n\n",
+        "ir_code": "# from tvm.script import ir as I\n# from tvm.script import tir as T\n\n@I.ir_module\nclass Module:\n    @T.prim_func\n    def main(data: T.Buffer((15, 19, 2, 20), \"float32\"), T_strided_slice: T.Buffer((3, 38, 4, 20), \"float32\")):\n        T.func_attr({\"from_legacy_te_schedule\": T.bool(True), \"tir.noalias\": T.bool(True)})\n        for ax0 in T.parallel(3):\n            T_transpose = T.allocate([3040], \"float32\", \"global\")\n            T_reshape = T.allocate([80], \"float32\", \"global\")\n            for ax1, ax2 in T.grid(19, 2):\n                T_reshape_1 = T.Buffer((80,), data=T_reshape)\n                for ax1_1, ax4, ax5 in T.grid(2, 2, 20):\n                    cse_var_1: T.int32 = ax4 * 20\n                    data_1 = T.Buffer((11400,), data=data.data)\n                    T_reshape_1[ax1_1 * 40 + cse_var_1 + ax5] = data_1[ax2 * 4560 + ax1_1 * 2280 + ax0 * 760 + ax1 * 40 + cse_var_1 + ax5]\n                for ax3, ax4, ax5 in T.grid(2, 2, 20):\n                    T_transpose_1 = T.Buffer((3040,), data=T_transpose)\n                    T_transpose_1[ax1 * 160 + ax2 * 80 + ax3 * 40 + ax4 * 20 + ax5] = T_reshape_1[ax4 * 40 + ax3 * 20 + ax5]\n            for ax1, ax2, ax3 in T.grid(38, 4, 20):\n                cse_var_3: T.int32 = ax1 * 80\n                cse_var_2: T.int32 = ax2 * 20\n                T_strided_slice_1 = T.Buffer((9120,), data=T_strided_slice.data)\n                T_transpose_1 = T.Buffer((3040,), data=T_transpose)\n                T_strided_slice_1[ax0 * 3040 + cse_var_3 + cse_var_2 + ax3] = T_transpose_1[cse_var_3 + cse_var_2 + ax3]",
+        "op_args": [
+            15,
+            19,
+            2,
+            20
+        ],
+        "input_shape": "[[15, 19, 2, 20]]",
+        "output_shape": "[[3, 38, 4, 20]]"
+    },
+    {
+        "op_name": "flatten",
+        "c_code": "void default_function_kernel(float* compute, float* data) {\n  #pragma omp parallel for\n  for (int32_t i = 0; i < 17; ++i) {\n    for (int32_t j = 0; j < 270; ++j) {\n      compute[((i * 270) + j)] = data[((i * 270) + j)];\n    }\n  }\n}\n\n",
+        "cuda_code": "extern \"C\" __global__ void __launch_bounds__(30) default_function_kernel(float* __restrict__ compute, float* __restrict__ data) {\n  compute[((((int)blockIdx.x) * 30) + ((int)threadIdx.x))] = data[((((int)blockIdx.x) * 30) + ((int)threadIdx.x))];\n}\n\n",
+        "ir_code": "# from tvm.script import ir as I\n# from tvm.script import tir as T\n\n@I.ir_module\nclass Module:\n    @T.prim_func\n    def main(data: T.Buffer((17, 3, 9, 10), \"float32\"), compute: T.Buffer((17, 270), \"float32\")):\n        T.func_attr({\"from_legacy_te_schedule\": T.bool(True), \"tir.noalias\": T.bool(True)})\n        for i in T.parallel(17):\n            for j in range(270):\n                cse_var_1: T.int32 = i * 270 + j\n                compute_1 = T.Buffer((4590,), data=compute.data)\n                data_1 = T.Buffer((4590,), data=data.data)\n                compute_1[cse_var_1] = data_1[cse_var_1]",
+        "op_args": [
+            17,
+            3,
+            9,
+            10
+        ],
+        "input_shape": "[[17, 3, 9, 10]]",
+        "output_shape": "[[17, 270]]"
+    },
+    {
+        "op_name": "depth_to_space",
+        "c_code": "void default_function_kernel(float* data, float* depth_to_space) {\n  #pragma omp parallel for\n  for (int32_t i0_i1_fused_i2_fused = 0; i0_i1_fused_i2_fused < 504; ++i0_i1_fused_i2_fused) {\n    for (int32_t i3 = 0; i3 < 6; ++i3) {\n      depth_to_space[((i0_i1_fused_i2_fused * 6) + i3)] = data[((((((i0_i1_fused_i2_fused / 36) * 270) + (((i0_i1_fused_i2_fused % 36) % 2) * 108)) + ((i3 % 2) * 54)) + (((i0_i1_fused_i2_fused % 36) / 2) * 3)) + (i3 / 2))];\n    }\n  }\n}\n\n",
+        "cuda_code": "extern \"C\" __global__ void __launch_bounds__(54) default_function_kernel(float* __restrict__ data, float* __restrict__ depth_to_space) {\n  depth_to_space[((((int)blockIdx.x) * 54) + ((int)threadIdx.x))] = data[((((((((int)blockIdx.x) >> 2) * 270) + (((((((int)blockIdx.x) & 3) * 9) + (((int)threadIdx.x) / 6)) % 2) * 108)) + (((((int)threadIdx.x) % 6) % 2) * 54)) + (((((((int)blockIdx.x) & 3) * 9) + (((int)threadIdx.x) / 6)) / 2) * 3)) + ((((int)threadIdx.x) % 6) / 2))];\n}\n\n",
+        "ir_code": "# from tvm.script import ir as I\n# from tvm.script import tir as T\n\n@I.ir_module\nclass Module:\n    @T.prim_func\n    def main(data: T.Buffer((14, 5, 18, 3), \"float32\"), depth_to_space: T.Buffer((14, 1, 36, 6), \"float32\")):\n        T.func_attr({\"from_legacy_te_schedule\": T.bool(True), \"tir.noalias\": T.bool(True)})\n        for i0_i1_fused_i2_fused in T.parallel(504):\n            for i3 in range(6):\n                cse_var_1: T.int32 = i0_i1_fused_i2_fused % 36\n                depth_to_space_1 = T.Buffer((3024,), data=depth_to_space.data)\n                data_1 = T.Buffer((3780,), data=data.data)\n                depth_to_space_1[i0_i1_fused_i2_fused * 6 + i3] = data_1[i0_i1_fused_i2_fused // 36 * 270 + T.truncmod(cse_var_1, 2) * 108 + T.truncmod(i3, 2) * 54 + T.Div(cse_var_1, 2) * 3 + T.Div(i3, 2)]",
+        "op_args": [
+            14,
+            5,
+            18,
+            3
+        ],
+        "input_shape": "[[14, 5, 18, 3]]",
+        "output_shape": "[[14, 1, 36, 6]]"
+    },
+    {
+        "op_name": "flip",
+        "c_code": "void default_function_kernel(float* T_reverse_sequence, float* data) {\n  #pragma omp parallel for\n  for (int32_t ax0_ax1_fused = 0; ax0_ax1_fused < 8; ++ax0_ax1_fused) {\n    for (int32_t ax2 = 0; ax2 < 13; ++ax2) {\n      for (int32_t ax3 = 0; ax3 < 4; ++ax3) {\n        T_reverse_sequence[(((ax0_ax1_fused * 52) + (ax2 * 4)) + ax3)] = data[((((((ax0_ax1_fused & 1) * 52) + (ax2 * 4)) + ax3) + 312) - ((ax0_ax1_fused >> 1) * 104))];\n      }\n    }\n  }\n}\n\n",
+        "cuda_code": "extern \"C\" __global__ void __launch_bounds__(13) default_function_kernel(float* __restrict__ T_reverse_sequence, float* __restrict__ data) {\n  T_reverse_sequence[((((int)blockIdx.x) * 13) + ((int)threadIdx.x))] = data[(((((((int)blockIdx.x) & 7) * 13) + ((int)threadIdx.x)) + 312) - ((((int)blockIdx.x) >> 3) * 104))];\n}\n\n",
+        "ir_code": "# from tvm.script import ir as I\n# from tvm.script import tir as T\n\n@I.ir_module\nclass Module:\n    @T.prim_func\n    def main(data: T.Buffer((4, 2, 13, 4), \"float32\"), T_reverse_sequence: T.Buffer((4, 2, 13, 4), \"float32\")):\n        T.func_attr({\"from_legacy_te_schedule\": T.bool(True), \"tir.noalias\": T.bool(True)})\n        for ax0_ax1_fused in T.parallel(8):\n            for ax2, ax3 in T.grid(13, 4):\n                cse_var_1: T.int32 = ax2 * 4\n                T_reverse_sequence_1 = T.Buffer((416,), data=T_reverse_sequence.data)\n                data_1 = T.Buffer((416,), data=data.data)\n                T_reverse_sequence_1[ax0_ax1_fused * 52 + cse_var_1 + ax3] = data_1[ax0_ax1_fused % 2 * 52 + cse_var_1 + ax3 + 312 - ax0_ax1_fused // 2 * 104]",
+        "op_args": [
+            4,
+            2,
+            13,
+            4
+        ],
+        "input_shape": "[[4, 2, 13, 4]]",
+        "output_shape": "[[4, 2, 13, 4]]"
+    },
+    {
+        "op_name": "scale_shift_nchw",
+        "c_code": "void default_function_kernel(float* Scale, float* ScaleShift, float* Shift, float* data) {\n  #pragma omp parallel for\n  for (int32_t b_outer_outer_outer_c_outer_outer_outer_fused_i_outer_outer_outer_fused_j_outer_outer_outer_fused_b_outer_outer_inner_fused_c_outer_outer_inner_fused_i_outer_outer_inner_fused_j_outer_outer_inner_fused_b_outer_inner_fused_c_outer_inner_fused_i_outer_inner_fused = 0; b_outer_outer_outer_c_outer_outer_outer_fused_i_outer_outer_outer_fused_j_outer_outer_outer_fused_b_outer_outer_inner_fused_c_outer_outer_inner_fused_i_outer_outer_inner_fused_j_outer_outer_inner_fused_b_outer_inner_fused_c_outer_inner_fused_i_outer_inner_fused < 1482; ++b_outer_outer_outer_c_outer_outer_outer_fused_i_outer_outer_outer_fused_j_outer_outer_outer_fused_b_outer_outer_inner_fused_c_outer_outer_inner_fused_i_outer_outer_inner_fused_j_outer_outer_inner_fused_b_outer_inner_fused_c_outer_inner_fused_i_outer_inner_fused) {\n    for (int32_t b_inner = 0; b_inner < 5; ++b_inner) {\n      for (int32_t i_inner = 0; i_inner < 6; ++i_inner) {\n        ScaleShift[((((((b_outer_outer_outer_c_outer_outer_outer_fused_i_outer_outer_outer_fused_j_outer_outer_outer_fused_b_outer_outer_inner_fused_c_outer_outer_inner_fused_i_outer_outer_inner_fused_j_outer_outer_inner_fused_b_outer_inner_fused_c_outer_inner_fused_i_outer_inner_fused / 741) * 22230) + (b_inner * 4446)) + (((b_outer_outer_outer_c_outer_outer_outer_fused_i_outer_outer_outer_fused_j_outer_outer_outer_fused_b_outer_outer_inner_fused_c_outer_outer_inner_fused_i_outer_outer_inner_fused_j_outer_outer_inner_fused_b_outer_inner_fused_c_outer_inner_fused_i_outer_inner_fused % 741) / 19) * 114)) + (i_inner * 19)) + (b_outer_outer_outer_c_outer_outer_outer_fused_i_outer_outer_outer_fused_j_outer_outer_outer_fused_b_outer_outer_inner_fused_c_outer_outer_inner_fused_i_outer_outer_inner_fused_j_outer_outer_inner_fused_b_outer_inner_fused_c_outer_inner_fused_i_outer_inner_fused % 19))] = ((data[((((((b_outer_outer_outer_c_outer_outer_outer_fused_i_outer_outer_outer_fused_j_outer_outer_outer_fused_b_outer_outer_inner_fused_c_outer_outer_inner_fused_i_outer_outer_inner_fused_j_outer_outer_inner_fused_b_outer_inner_fused_c_outer_inner_fused_i_outer_inner_fused / 741) * 22230) + (b_inner * 4446)) + (((b_outer_outer_outer_c_outer_outer_outer_fused_i_outer_outer_outer_fused_j_outer_outer_outer_fused_b_outer_outer_inner_fused_c_outer_outer_inner_fused_i_outer_outer_inner_fused_j_outer_outer_inner_fused_b_outer_inner_fused_c_outer_inner_fused_i_outer_inner_fused % 741) / 19) * 114)) + (i_inner * 19)) + (b_outer_outer_outer_c_outer_outer_outer_fused_i_outer_outer_outer_fused_j_outer_outer_outer_fused_b_outer_outer_inner_fused_c_outer_outer_inner_fused_i_outer_outer_inner_fused_j_outer_outer_inner_fused_b_outer_inner_fused_c_outer_inner_fused_i_outer_inner_fused % 19))] * Scale[((b_outer_outer_outer_c_outer_outer_outer_fused_i_outer_outer_outer_fused_j_outer_outer_outer_fused_b_outer_outer_inner_fused_c_outer_outer_inner_fused_i_outer_outer_inner_fused_j_outer_outer_inner_fused_b_outer_inner_fused_c_outer_inner_fused_i_outer_inner_fused % 741) / 57)]) + Shift[((b_outer_outer_outer_c_outer_outer_outer_fused_i_outer_outer_outer_fused_j_outer_outer_outer_fused_b_outer_outer_inner_fused_c_outer_outer_inner_fused_i_outer_outer_inner_fused_j_outer_outer_inner_fused_b_outer_inner_fused_c_outer_inner_fused_i_outer_inner_fused % 741) / 57)]);\n      }\n    }\n  }\n}\n\n",
+        "cuda_code": "extern \"C\" __global__ void __launch_bounds__(32) default_function_kernel(float* __restrict__ Scale, float* __restrict__ ScaleShift, float* __restrict__ Shift, float* __restrict__ data) {\n  if (((((int)blockIdx.x) * 8) + (((int)threadIdx.x) >> 2)) < 11115) {\n    ScaleShift[((((int)blockIdx.x) * 32) + ((int)threadIdx.x))] = ((data[((((int)blockIdx.x) * 32) + ((int)threadIdx.x))] * Scale[((((((int)blockIdx.x) * 16) + (((int)threadIdx.x) >> 1)) % 2223) / 171)]) + Shift[((((((int)blockIdx.x) * 16) + (((int)threadIdx.x) >> 1)) % 2223) / 171)]);\n  }\n}\n\n",
+        "ir_code": "# from tvm.script import ir as I\n# from tvm.script import tir as T\n\n@I.ir_module\nclass Module:\n    @T.prim_func\n    def main(data: T.Buffer((10, 13, 18, 19), \"float32\"), Scale: T.Buffer((13,), \"float32\"), Shift: T.Buffer((13,), \"float32\"), ScaleShift: T.Buffer((10, 13, 18, 19), \"float32\")):\n        T.func_attr({\"from_legacy_te_schedule\": T.bool(True), \"tir.noalias\": T.bool(True)})\n        for b_outer_outer_outer_c_outer_outer_outer_fused_i_outer_outer_outer_fused_j_outer_outer_outer_fused_b_outer_outer_inner_fused_c_outer_outer_inner_fused_i_outer_outer_inner_fused_j_outer_outer_inner_fused_b_outer_inner_fused_c_outer_inner_fused_i_outer_inner_fused in T.parallel(1482):\n            for b_inner, i_inner in T.grid(5, 6):\n                cse_var_3: T.int32 = b_outer_outer_outer_c_outer_outer_outer_fused_i_outer_outer_outer_fused_j_outer_outer_outer_fused_b_outer_outer_inner_fused_c_outer_outer_inner_fused_i_outer_outer_inner_fused_j_outer_outer_inner_fused_b_outer_inner_fused_c_outer_inner_fused_i_outer_inner_fused % 741\n                cse_var_2: T.int32 = cse_var_3 // 57\n                cse_var_1: T.int32 = b_outer_outer_outer_c_outer_outer_outer_fused_i_outer_outer_outer_fused_j_outer_outer_outer_fused_b_outer_outer_inner_fused_c_outer_outer_inner_fused_i_outer_outer_inner_fused_j_outer_outer_inner_fused_b_outer_inner_fused_c_outer_inner_fused_i_outer_inner_fused // 741 * 22230 + b_inner * 4446 + cse_var_3 // 19 * 114 + i_inner * 19 + b_outer_outer_outer_c_outer_outer_outer_fused_i_outer_outer_outer_fused_j_outer_outer_outer_fused_b_outer_outer_inner_fused_c_outer_outer_inner_fused_i_outer_outer_inner_fused_j_outer_outer_inner_fused_b_outer_inner_fused_c_outer_inner_fused_i_outer_inner_fused % 19\n                ScaleShift_1 = T.Buffer((44460,), data=ScaleShift.data)\n                data_1 = T.Buffer((44460,), data=data.data)\n                ScaleShift_1[cse_var_1] = data_1[cse_var_1] * Scale[cse_var_2] + Shift[cse_var_2]",
+        "op_args": [
+            10,
+            13,
+            18,
+            19
+        ],
+        "input_shape": "[[10, 13, 18, 19], [13], [13]]",
+        "output_shape": "[[10, 13, 18, 19]]"
+    },
+    {
+        "op_name": "space_to_depth",
+        "c_code": "void default_function_kernel(float* data, float* space_to_depth) {\n  #pragma omp parallel for\n  for (int32_t i0_i1_fused_i2_fused_i3_fused = 0; i0_i1_fused_i2_fused_i3_fused < 648; ++i0_i1_fused_i2_fused_i3_fused) {\n    space_to_depth[i0_i1_fused_i2_fused_i3_fused] = data[((((((i0_i1_fused_i2_fused_i3_fused / 36) * 36) + ((((i0_i1_fused_i2_fused_i3_fused % 36) / 3) % 3) * 12)) + ((((i0_i1_fused_i2_fused_i3_fused % 36) / 3) / 6) * 6)) + ((i0_i1_fused_i2_fused_i3_fused % 3) * 2)) + ((((i0_i1_fused_i2_fused_i3_fused % 36) / 3) % 6) / 3))];\n  }\n}\n\n",
+        "cuda_code": "extern \"C\" __global__ void __launch_bounds__(8) default_function_kernel(float* __restrict__ data, float* __restrict__ space_to_depth) {\n  space_to_depth[((((int)blockIdx.x) * 8) + ((int)threadIdx.x))] = data[((((((((((int)blockIdx.x) * 2) + (((int)threadIdx.x) >> 2)) / 9) * 36) + ((((((((int)blockIdx.x) * 8) + ((int)threadIdx.x)) % 36) / 3) % 3) * 12)) + ((((((((int)blockIdx.x) * 8) + ((int)threadIdx.x)) % 36) / 3) / 6) * 6)) + ((((((int)blockIdx.x) * 2) + ((int)threadIdx.x)) % 3) * 2)) + ((((((((int)blockIdx.x) * 8) + ((int)threadIdx.x)) % 36) / 3) % 6) / 3))];\n}\n\n",
+        "ir_code": "# from tvm.script import ir as I\n# from tvm.script import tir as T\n\n@I.ir_module\nclass Module:\n    @T.prim_func\n    def main(data: T.Buffer((18, 3, 2, 6), \"float32\"), space_to_depth: T.Buffer((18, 12, 1, 3), \"float32\")):\n        T.func_attr({\"from_legacy_te_schedule\": T.bool(True), \"tir.noalias\": T.bool(True)})\n        for i0_i1_fused_i2_fused_i3_fused in T.parallel(648):\n            cse_var_1: T.int32 = i0_i1_fused_i2_fused_i3_fused % 36 // 3\n            space_to_depth_1 = T.Buffer((648,), data=space_to_depth.data)\n            data_1 = T.Buffer((648,), data=data.data)\n            space_to_depth_1[i0_i1_fused_i2_fused_i3_fused] = data_1[i0_i1_fused_i2_fused_i3_fused // 36 * 36 + T.truncmod(cse_var_1, 3) * 12 + T.Div(cse_var_1, 6) * 6 + i0_i1_fused_i2_fused_i3_fused % 3 * 2 + T.Div(T.truncmod(cse_var_1, 6), 3)]",
+        "op_args": [
+            18,
+            3,
+            1,
+            3
+        ],
+        "input_shape": "[[18, 3, 2, 6]]",
+        "output_shape": "[[18, 12, 1, 3]]"
+    },
+    {
+        "op_name": "strided_slice",
+        "c_code": "void default_function_kernel(float* T_strided_slice, float* a) {\n  for (int32_t ax1 = 0; ax1 < 5; ++ax1) {\n    for (int32_t ax2 = 0; ax2 < 7; ++ax2) {\n      T_strided_slice[((ax1 * 7) + ax2)] = a[(((ax1 * 15) + ax2) + 183)];\n    }\n  }\n}\n\n",
+        "cuda_code": "extern \"C\" __global__ void __launch_bounds__(7) default_function_kernel(float* __restrict__ T_strided_slice, float* __restrict__ a) {\n  T_strided_slice[((((int)blockIdx.x) * 7) + ((int)threadIdx.x))] = a[(((((int)blockIdx.x) * 15) + ((int)threadIdx.x)) + 183)];\n}\n\n",
+        "ir_code": "# from tvm.script import ir as I\n# from tvm.script import tir as T\n\n@I.ir_module\nclass Module:\n    @T.prim_func\n    def main(a: T.Buffer((2, 10, 15), \"float32\"), T_strided_slice: T.Buffer((1, 5, 7), \"float32\")):\n        T.func_attr({\"from_legacy_te_schedule\": T.bool(True), \"tir.noalias\": T.bool(True)})\n        for ax1, ax2 in T.grid(5, 7):\n            T_strided_slice_1 = T.Buffer((35,), data=T_strided_slice.data)\n            a_1 = T.Buffer((300,), data=a.data)\n            T_strided_slice_1[ax1 * 7 + ax2] = a_1[ax1 * 15 + ax2 + 183]",
+        "op_args": [
+            1,
+            2,
+            10,
+            15
+        ],
+        "input_shape": "[[2, 10, 15]]",
+        "output_shape": "[[1, 5, 7]]"
+    },
+    {
+        "op_name": "unpack_NCHWc_to_nchw",
+        "c_code": "void default_function_kernel(float* output_unpack, float* packed_out) {\n  #pragma omp parallel for\n  for (int32_t n_c_fused_h_fused = 0; n_c_fused_h_fused < 504; ++n_c_fused_h_fused) {\n    for (int32_t w = 0; w < 8; ++w) {\n      output_unpack[((n_c_fused_h_fused * 8) + w)] = packed_out[(((((n_c_fused_h_fused / 24) * 192) + ((n_c_fused_h_fused % 12) * 16)) + (w * 2)) + ((n_c_fused_h_fused % 24) / 12))];\n    }\n  }\n}\n\n",
+        "cuda_code": "extern \"C\" __global__ void __launch_bounds__(64) default_function_kernel(float* __restrict__ output_unpack, float* __restrict__ packed_out) {\n  output_unpack[((((int)blockIdx.x) * 64) + ((int)threadIdx.x))] = packed_out[(((((((int)blockIdx.x) / 3) * 192) + ((((((int)blockIdx.x) * 8) + (((int)threadIdx.x) >> 3)) % 12) * 16)) + ((((int)threadIdx.x) & 7) * 2)) + ((((((int)blockIdx.x) % 3) * 2) + (((int)threadIdx.x) >> 5)) / 3))];\n}\n\n",
+        "ir_code": "# from tvm.script import ir as I\n# from tvm.script import tir as T\n\n@I.ir_module\nclass Module:\n    @T.prim_func\n    def main(packed_out: T.Buffer((3, 7, 12, 8, 2), \"float32\"), output_unpack: T.Buffer((3, 14, 12, 8), \"float32\")):\n        T.func_attr({\"from_legacy_te_schedule\": T.bool(True), \"tir.noalias\": T.bool(True)})\n        for n_c_fused_h_fused in T.parallel(504):\n            for w in range(8):\n                output_unpack_1 = T.Buffer((4032,), data=output_unpack.data)\n                packed_out_1 = T.Buffer((4032,), data=packed_out.data)\n                output_unpack_1[n_c_fused_h_fused * 8 + w] = packed_out_1[n_c_fused_h_fused // 24 * 192 + n_c_fused_h_fused % 12 * 16 + w * 2 + n_c_fused_h_fused % 24 // 12]",
+        "op_args": [
+            3,
+            7,
+            12,
+            8
+        ],
+        "input_shape": "[[3, 7, 12, 8, 2]]",
+        "output_shape": "[[3, 14, 12, 8]]"
+    },
+    {
+        "op_name": "upsampling",
+        "c_code": "void default_function_kernel(float* data, float* resize) {\n  #pragma omp parallel for\n  for (int32_t i0 = 0; i0 < 11; ++i0) {\n    for (int32_t i2 = 0; i2 < 40; ++i2) {\n      for (int32_t i3 = 0; i3 < 36; ++i3) {\n        resize[(((i0 * 1440) + (i2 * 36)) + i3)] = data[(((i0 * 360) + ((i2 / 2) * 18)) + (i3 / 2))];\n      }\n    }\n  }\n}\n\n",
+        "cuda_code": "extern \"C\" __global__ void __launch_bounds__(36) default_function_kernel(float* __restrict__ data, float* __restrict__ resize) {\n  resize[((((int)blockIdx.x) * 36) + ((int)threadIdx.x))] = data[((((((int)blockIdx.x) / 40) * 360) + (((((int)blockIdx.x) % 40) / 2) * 18)) + (((int)threadIdx.x) / 2))];\n}\n\n",
+        "ir_code": "# from tvm.script import ir as I\n# from tvm.script import tir as T\n\n@I.ir_module\nclass Module:\n    @T.prim_func\n    def main(data: T.Buffer((11, 1, 20, 18), \"float32\"), resize: T.Buffer((11, 1, 40, 36), \"float32\")):\n        T.func_attr({\"from_legacy_te_schedule\": T.bool(True), \"tir.noalias\": T.bool(True)})\n        for i0 in T.parallel(11):\n            for i2, i3 in T.grid(40, 36):\n                resize_1 = T.Buffer((15840,), data=resize.data)\n                data_1 = T.Buffer((3960,), data=data.data)\n                resize_1[i0 * 1440 + i2 * 36 + i3] = data_1[i0 * 360 + T.Div(i2, 2) * 18 + T.Div(i3, 2)]",
+        "op_args": [
+            11,
+            1,
+            10,
+            9
+        ],
+        "input_shape": "[[11, 1, 20, 18]]",
+        "output_shape": "[[11, 1, 40, 36]]"
+    }
+]

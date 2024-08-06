@@ -1,0 +1,23 @@
+topology_expansion_[['abs', 'asinh', 'exp', 'ceil', 'ceil']]_[[1, 9, 2]]: 0.12313222885131836
+topology_expansion_[['exp', 'atanh']]_[[13, 17, 7]]: 0.08309292793273926
+topology_expansion_[['multiply', 'abs', 'atanh']]_[[19, 20, 18], [9, 19, 17], [19, 20, 18]]: 0.008023262023925781
+topology_expansion_[['atan', 'atan', 'abs', 'atan']]_[[6, 3, 7]]: 0.10642695426940918
+topology_expansion_[['divide', 'add', 'exp', 'acosh', 'atanh', 'atan']]_[[20, 13, 9], [16, 4, 9], [20, 13, 9]]: 0.008678913116455078
+topology_expansion_[['atanh', 'ceil', 'acosh', 'ceil', 'ceil']]_[[15, 10, 18]]: 0.13073968887329102
+topology_expansion_[['asinh', 'asin', 'atanh', 'sin']]_[[2, 11, 7]]: 0.10987615585327148
+topology_expansion_[['divide', 'atan', 'cos', 'subtract']]_[[9, 13, 10], [17, 7, 20], [9, 13, 10]]: 0.0081787109375
+topology_expansion_[['asinh', 'multiply', 'exp']]_[[11, 8, 3]]: 0.10146379470825195
+topology_expansion_[['acos', 'cos', 'asinh', 'sin', 'atan']]_[[19, 17, 15]]: 0.12859582901000977
+topology_expansion_[['asinh', 'acos', 'ceil', 'sin']]_[[14, 17, 9]]: 0.12050771713256836
+topology_expansion_[['divide', 'subtract', 'multiply', 'asinh', 'atanh']]_[[19, 15, 9], [19, 12, 17], [19, 15, 9]]: 0.00797724723815918
+topology_expansion_[['asinh', 'atan', 'cos', 'asinh', 'acosh']]_[[16, 18, 10]]: 0.12153244018554688
+topology_expansion_[['cos', 'divide', 'atanh']]_[[11, 2, 8]]: 0.09440827369689941
+topology_expansion_[['subtract', 'acos', 'ceil', 'mod', 'ceil']]_[[20, 14, 4], [12, 10, 16], [20, 14, 4]]: 0.008818387985229492
+topology_expansion_[['subtract', 'multiply', 'multiply', 'mod', 'ceil']]_[[16, 19, 8], [18, 11, 11], [16, 19, 8]]: 0.008467674255371094
+topology_expansion_[['multiply', 'atanh', 'ceil']]_[[10, 2, 1], [4, 2, 7], [10, 2, 1]]: 0.00792384147644043
+topology_expansion_[['cos', 'add', 'atanh']]_[[8, 1, 18]]: 0.10091280937194824
+topology_expansion_[['ceil']]_[[10, 17, 20]]: 0.09905004501342773
+topology_expansion_[['atanh', 'atan', 'cos', 'atan']]_[[9, 12, 16]]: 0.11897730827331543
+topology_expansion_[['add', 'atan']]_[[1, 14, 4], [14, 17, 6], [1, 14, 4]]: 0.007159233093261719
+topology_expansion_[['divide', 'divide', 'cos', 'asinh', 'acos', 'asinh']]_[[15, 18, 5], [8, 9, 2], [15, 18, 5]]: 0.008856534957885742
+topology_expansion_[['mod', 'sin', 'ceil', 'asinh']]_[[14, 2, 1], [20, 9, 19], [14, 2, 1]]: 0.00791311264038086
