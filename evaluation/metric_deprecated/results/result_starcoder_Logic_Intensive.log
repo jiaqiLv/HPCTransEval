@@ -1,7 +1,0 @@
-2024-07-30 16:34:55 INFO: fifo_buffer_[15, 17, 7, 18]_[[15, 17, 7, 18], [15, 17, 7, 18]] COMPILE PASS
-2024-07-30 16:35:01 INFO: shape_[14, 5, 1, 11]_[[14, 5, 1, 11]] COMPILE PASS
-2024-07-30 16:35:01 INFO: shape_[14, 5, 1, 11]_[[14, 5, 1, 11]] EXEC PASS
-2024-07-30 16:35:05 INFO: upsampling_[11, 1, 10, 9]_[[11, 1, 20, 18]] COMPILE PASS
-2024-07-30 16:35:14 INFO: grid_sample_None_[[4, 4, 8, 8], [4, 2, 16, 16]] COMPILE PASS
-2024-07-30 16:35:18 INFO: argsort_None_[[64, 512]] COMPILE PASS
-2024-07-30 16:35:18 INFO: argsort_None_[[64, 512]] EXEC PASS

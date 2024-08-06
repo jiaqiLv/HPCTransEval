@@ -1,3 +1,0 @@
-2024-07-30 16:56:24 INFO: lrn_[12, 10, 13, 9]_[[12, 10, 13, 9]] COMPILE PASS
-2024-07-30 16:56:28 INFO: matmul_[7, 2, 2, 2]_[[2, 2], [2, 2]] COMPILE PASS
-2024-07-30 16:57:10 INFO: batch_matmul_opt_None_[[16, 2048, 2048], [16, 2048, 2048]] COMPILE PASS

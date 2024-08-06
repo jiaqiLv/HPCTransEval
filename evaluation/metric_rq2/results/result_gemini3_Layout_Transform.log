@@ -1,6 +1,0 @@
-2024-07-31 22:36:36 INFO: scale_shift_nchw_[10, 13, 18, 19]_[[10, 13, 18, 19], [13], [13]] COMPILE PASS
-2024-07-31 22:36:39 INFO: flip_[4, 2, 13, 4]_[[4, 2, 13, 4]] COMPILE PASS
-2024-07-31 22:36:47 INFO: strided_slice_[1, 2, 10, 15]_[[2, 10, 15]] COMPILE PASS
-2024-07-31 22:36:47 INFO: strided_slice_[1, 2, 10, 15]_[[2, 10, 15]] EXEC PASS
-2024-07-31 22:36:53 INFO: scale_shift_nchwc_[7, 7, 16, 14]_[[7, 2, 16, 14, 7], [2, 7], [2, 7]] COMPILE PASS
-2024-07-31 22:36:57 INFO: mirror_pad_[14, 16, 2, 6]_[[2, 6]] COMPILE PASS
