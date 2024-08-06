@@ -1,4 +1,4 @@
-PYTHON_PROGRAM="code_verification_single.py"
+PYTHON_PROGRAM="code_verification.py"
 
 Generated_Graph=(
 'topology_expansion_[['abs', 'asinh', 'exp', 'ceil', 'ceil']]_[[1, 9, 2]]'
@@ -73,14 +73,6 @@ Generated_Graph=(
 'graph_30_None_[[11, 22, 33, 44]]'
 )
 
-OldElementwise=(log_softmax erf leaky_relu sqrt asin 
-tanh softmax fast_softmax floor log 
-sin prelu scale_shift_nchwc softmax_common fast_exp 
-log2 sign sigmoid isnan relu 
-cos fast_tanh log10 round atan 
-negative add tan atanh acos 
-ceil asinh abs exp combination_op prod)
-
 Elementwise=(erf leaky_relu sqrt asin tanh floor log sin prelu fast_exp 
 log2 sign sigmoid isnan relu cos fast_tanh log10 round atan 
 negative add tan atanh acos ceil asinh abs exp rsqrt 
@@ -97,85 +89,18 @@ Logic_Intensive=(fifo_buffer multi_out_op shape upsampling resize2d resize3d gri
 
 Compute_Intensive=(lrn matmul conv2d_opt dft group_conv2d_opt batch_matmul_opt)
 
-Model=(deepseek starcoder codellama)
-
-# python $PYTHON_PROGRAM \
-#     --op_name argsort \
-#     --model deepseek \
-#     --op_type Logic_Intensive \
-
 success=0
 for model in "${Model[@]}"; do
     for op in "${Elementwise[@]}"; do
         python $PYTHON_PROGRAM \
             --op_name "$op" \
             --model "$model" \
-            --op_type Elementwise \
+            --op_type "OP_TYPE" \
 
         if [ $? -eq 0 ]; then
-            continue
-        else
             success=$((success+1))
-        fi
-    done
-done
-
-for model in "${Model[@]}"; do
-    for op in "${Reduction[@]}"; do
-        python $PYTHON_PROGRAM \
-            --op_name "$op" \
-            --model "$model" \
-            --op_type Reduction \
-
-        if [ $? -eq 0 ]; then
-            continue
         else
-            success=$((success+1))
-        fi
-    done
-done
-
-for model in "${Model[@]}"; do
-    for op in "${Layout_Transform[@]}"; do
-        python $PYTHON_PROGRAM \
-            --op_name "$op" \
-            --model "$model" \
-            --op_type Layout-Transform \
-
-        if [ $? -eq 0 ]; then
             continue
-        else
-            success=$((success+1))
-        fi
-    done
-done
-
-for model in "${Model[@]}"; do
-    for op in "${Logic_Intensive[@]}"; do
-        python $PYTHON_PROGRAM \
-            --op_name "$op" \
-            --model "$model" \
-            --op_type Logic-Intensive \
-
-        if [ $? -eq 0 ]; then
-            continue
-        else
-            success=$((success+1))
-        fi
-    done
-done
-
-for model in "${Model[@]}"; do
-    for op in "${Compute_Intensive[@]}"; do
-        python $PYTHON_PROGRAM \
-            --op_name "$op" \
-            --model "$model" \
-            --op_type Compute-Intensive \
-
-        if [ $? -eq 0 ]; then
-            continue
-        else
-            success=$((success+1))
         fi
     done
 done
