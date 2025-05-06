@@ -1,0 +1,130 @@
+2025-04-16 22:16:48 INFO: abs_[16, 3, 4, 12]_[[16, 3, 4, 12]] COMPILE PASS
+2025-04-16 22:16:48 INFO: abs_[16, 3, 4, 12]_[[16, 3, 4, 12]] EXEC PASS
+2025-04-16 22:16:49 INFO: acos_[8, 17, 1, 11]_[[8, 17, 1, 11]] COMPILE PASS
+2025-04-16 22:16:49 INFO: acos_[8, 17, 1, 11]_[[8, 17, 1, 11]] EXEC PASS
+2025-04-16 22:16:51 INFO: adaptive_pool_avg_[15, 13, 1, 2]_[[15, 13, 1, 2]] COMPILE PASS
+2025-04-16 22:16:51 INFO: adaptive_pool_avg_[15, 13, 1, 2]_[[15, 13, 1, 2]] EXEC PASS
+2025-04-16 22:16:53 INFO: adaptive_pool_max_[15, 17, 5, 16]_[[15, 17, 5, 16]] COMPILE PASS
+2025-04-16 22:16:53 INFO: adaptive_pool_max_[15, 17, 5, 16]_[[15, 17, 5, 16]] EXEC PASS
+2025-04-16 22:16:55 INFO: add_[20, 10, 9, 18]_[[20, 10, 9, 18], [20, 10, 9, 18]] COMPILE PASS
+2025-04-16 22:16:55 INFO: add_[20, 10, 9, 18]_[[20, 10, 9, 18], [20, 10, 9, 18]] EXEC PASS
+2025-04-16 22:16:56 INFO: argsort_None_[[64, 512]] COMPILE PASS
+2025-04-16 22:16:56 INFO: argsort_None_[[64, 512]] EXEC PASS
+2025-04-16 22:16:58 INFO: asin_[9, 11, 11, 7]_[[9, 11, 11, 7]] COMPILE PASS
+2025-04-16 22:16:58 INFO: asin_[9, 11, 11, 7]_[[9, 11, 11, 7]] EXEC PASS
+2025-04-16 22:17:00 INFO: asinh_[4, 4, 15, 19]_[[4, 4, 15, 19]] COMPILE PASS
+2025-04-16 22:17:00 INFO: asinh_[4, 4, 15, 19]_[[4, 4, 15, 19]] EXEC PASS
+2025-04-16 22:17:01 INFO: atan_[17, 12, 7, 9]_[[17, 12, 7, 9]] COMPILE PASS
+2025-04-16 22:17:01 INFO: atan_[17, 12, 7, 9]_[[17, 12, 7, 9]] EXEC PASS
+2025-04-16 22:17:03 INFO: atanh_[18, 9, 3, 11]_[[18, 9, 3, 11]] COMPILE PASS
+2025-04-16 22:17:03 INFO: atanh_[18, 9, 3, 11]_[[18, 9, 3, 11]] EXEC PASS
+2025-04-16 22:17:30 INFO: batch_to_space_nd_[15, 19, 2, 20]_[[15, 19, 2, 20]] COMPILE PASS
+2025-04-16 22:17:30 INFO: batch_to_space_nd_[15, 19, 2, 20]_[[15, 19, 2, 20]] EXEC PASS
+2025-04-16 22:17:32 INFO: ceil_[8, 11, 1, 17]_[[8, 11, 1, 17]] COMPILE PASS
+2025-04-16 22:17:32 INFO: ceil_[8, 11, 1, 17]_[[8, 11, 1, 17]] EXEC PASS
+2025-04-16 22:17:33 INFO: combination_op_[14, 4, 7, 16]_[[14, 4, 7, 16], [14, 4, 7, 16]] COMPILE PASS
+2025-04-16 22:17:33 INFO: combination_op_[14, 4, 7, 16]_[[14, 4, 7, 16], [14, 4, 7, 16]] EXEC PASS
+2025-04-16 22:17:37 INFO: cos_[17, 2, 13, 7]_[[17, 2, 13, 7]] COMPILE PASS
+2025-04-16 22:17:37 INFO: cos_[17, 2, 13, 7]_[[17, 2, 13, 7]] EXEC PASS
+2025-04-16 22:17:39 INFO: depth_to_space_[14, 5, 18, 3]_[[14, 5, 18, 3]] COMPILE PASS
+2025-04-16 22:17:39 INFO: depth_to_space_[14, 5, 18, 3]_[[14, 5, 18, 3]] EXEC PASS
+2025-04-16 22:17:41 INFO: dft_None_[[30, 40, 50], [30, 40, 50]] COMPILE PASS
+2025-04-16 22:17:41 INFO: dft_None_[[30, 40, 50], [30, 40, 50]] EXEC PASS
+2025-04-16 22:17:44 INFO: erf_[13, 6, 1, 4]_[[13, 6, 1, 4]] COMPILE PASS
+2025-04-16 22:17:44 INFO: erf_[13, 6, 1, 4]_[[13, 6, 1, 4]] EXEC PASS
+2025-04-16 22:17:46 INFO: exp_[1, 19, 4, 10]_[[1, 19, 4, 10]] COMPILE PASS
+2025-04-16 22:17:46 INFO: exp_[1, 19, 4, 10]_[[1, 19, 4, 10]] EXEC PASS
+2025-04-16 22:17:49 INFO: fast_exp_[15, 19, 2, 16]_[[15, 19, 2, 16]] COMPILE PASS
+2025-04-16 22:17:49 INFO: fast_exp_[15, 19, 2, 16]_[[15, 19, 2, 16]] EXEC PASS
+2025-04-16 22:17:51 INFO: fast_softmax_[13, 20, 3, 15]_[[13, 20, 3, 15]] COMPILE PASS
+2025-04-16 22:17:51 INFO: fast_softmax_[13, 20, 3, 15]_[[13, 20, 3, 15]] EXEC PASS
+2025-04-16 22:17:53 INFO: fast_tanh_[18, 14, 2, 12]_[[18, 14, 2, 12]] COMPILE PASS
+2025-04-16 22:17:53 INFO: fast_tanh_[18, 14, 2, 12]_[[18, 14, 2, 12]] EXEC PASS
+2025-04-16 22:17:54 INFO: fifo_buffer_[15, 17, 7, 18]_[[15, 17, 7, 18], [15, 17, 7, 18]] COMPILE PASS
+2025-04-16 22:17:54 INFO: fifo_buffer_[15, 17, 7, 18]_[[15, 17, 7, 18], [15, 17, 7, 18]] EXEC PASS
+2025-04-16 22:17:56 INFO: flatten_[17, 3, 9, 10]_[[17, 3, 9, 10]] COMPILE PASS
+2025-04-16 22:17:56 INFO: flatten_[17, 3, 9, 10]_[[17, 3, 9, 10]] EXEC PASS
+2025-04-16 22:17:58 INFO: flip_[4, 2, 13, 4]_[[4, 2, 13, 4]] COMPILE PASS
+2025-04-16 22:17:58 INFO: flip_[4, 2, 13, 4]_[[4, 2, 13, 4]] EXEC PASS
+2025-04-16 22:18:00 INFO: floor_[3, 18, 11, 10]_[[3, 18, 11, 10]] COMPILE PASS
+2025-04-16 22:18:00 INFO: floor_[3, 18, 11, 10]_[[3, 18, 11, 10]] EXEC PASS
+2025-04-16 22:18:02 INFO: gather_nd_None_[[32, 64, 64, 50], [2, 2, 2, 2]] COMPILE PASS
+2025-04-16 22:18:02 INFO: gather_nd_None_[[32, 64, 64, 50], [2, 2, 2, 2]] EXEC FAIL
+2025-04-16 22:18:02 INFO: gather_nd_None_[[32, 64, 64, 50], [2, 2, 2, 2]] EXEC PASS
+2025-04-16 22:18:04 INFO: global_pool_avg_[5, 8, 15, 15]_[[5, 8, 15, 15]] COMPILE PASS
+2025-04-16 22:18:04 INFO: global_pool_avg_[5, 8, 15, 15]_[[5, 8, 15, 15]] EXEC PASS
+2025-04-16 22:18:07 INFO: grid_sample_None_[[4, 4, 8, 8], [4, 2, 16, 16]] COMPILE PASS
+2025-04-16 22:18:07 INFO: grid_sample_None_[[4, 4, 8, 8], [4, 2, 16, 16]] EXEC PASS
+2025-04-16 22:18:10 INFO: isnan_[14, 8, 19, 5]_[[14, 8, 19, 5]] COMPILE PASS
+2025-04-16 22:18:10 INFO: isnan_[14, 8, 19, 5]_[[14, 8, 19, 5]] EXEC PASS
+2025-04-16 22:18:12 INFO: leaky_relu_[3, 12, 18, 4]_[[3, 12, 18, 4]] COMPILE PASS
+2025-04-16 22:18:12 INFO: leaky_relu_[3, 12, 18, 4]_[[3, 12, 18, 4]] EXEC PASS
+2025-04-16 22:18:14 INFO: log10_[7, 6, 3, 6]_[[7, 6, 3, 6]] COMPILE PASS
+2025-04-16 22:18:14 INFO: log10_[7, 6, 3, 6]_[[7, 6, 3, 6]] EXEC PASS
+2025-04-16 22:18:16 INFO: log2_[11, 8, 1, 13]_[[11, 8, 1, 13]] COMPILE PASS
+2025-04-16 22:18:16 INFO: log2_[11, 8, 1, 13]_[[11, 8, 1, 13]] EXEC PASS
+2025-04-16 22:18:17 INFO: log_[3, 18, 6, 17]_[[3, 18, 6, 17]] COMPILE PASS
+2025-04-16 22:18:17 INFO: log_[3, 18, 6, 17]_[[3, 18, 6, 17]] EXEC PASS
+2025-04-16 22:18:19 INFO: log_softmax_[15, 11, 3, 4]_[[15, 11, 3, 4]] COMPILE PASS
+2025-04-16 22:18:19 INFO: log_softmax_[15, 11, 3, 4]_[[15, 11, 3, 4]] EXEC PASS
+2025-04-16 22:18:22 INFO: matmul_[7, 2, 2, 2]_[[2, 2], [2, 2]] COMPILE PASS
+2025-04-16 22:18:22 INFO: matmul_[7, 2, 2, 2]_[[2, 2], [2, 2]] EXEC PASS
+2025-04-16 22:18:27 INFO: mirror_pad_[14, 16, 2, 6]_[[2, 6]] COMPILE PASS
+2025-04-16 22:18:27 INFO: mirror_pad_[14, 16, 2, 6]_[[2, 6]] EXEC PASS
+2025-04-16 22:18:29 INFO: multi_out_op_[4, 17, 12, 17]_[[4, 17, 12, 17], [4, 17, 12, 17], [4, 17, 12, 17]] COMPILE PASS
+2025-04-16 22:18:29 INFO: multi_out_op_[4, 17, 12, 17]_[[4, 17, 12, 17], [4, 17, 12, 17], [4, 17, 12, 17]] EXEC PASS
+2025-04-16 22:18:31 INFO: negative_[4, 9, 6, 10]_[[4, 9, 6, 10]] COMPILE PASS
+2025-04-16 22:18:31 INFO: negative_[4, 9, 6, 10]_[[4, 9, 6, 10]] EXEC PASS
+2025-04-16 22:18:33 INFO: pool1d_[19, 1, 5, 11]_[[19, 1, 11]] COMPILE PASS
+2025-04-16 22:18:33 INFO: pool1d_[19, 1, 5, 11]_[[19, 1, 11]] EXEC PASS
+2025-04-16 22:18:34 INFO: pool2d_[11, 3, 18, 4]_[[11, 3, 18, 12]] COMPILE PASS
+2025-04-16 22:18:36 INFO: pool3d_[10, 17, 7, 8]_[[10, 17, 7, 8, 16]] COMPILE PASS
+2025-04-16 22:18:36 INFO: pool3d_[10, 17, 7, 8]_[[10, 17, 7, 8, 16]] EXEC PASS
+2025-04-16 22:18:38 INFO: prelu_[9, 17, 16, 19]_[[9, 17, 16, 19], [19]] COMPILE PASS
+2025-04-16 22:18:38 INFO: prelu_[9, 17, 16, 19]_[[9, 17, 16, 19], [19]] EXEC PASS
+2025-04-16 22:18:39 INFO: prod_[15, 20, 3, 7]_[[15, 20, 3, 7]] COMPILE PASS
+2025-04-16 22:18:39 INFO: prod_[15, 20, 3, 7]_[[15, 20, 3, 7]] EXEC PASS
+2025-04-16 22:18:41 INFO: relu_[15, 14, 3, 11]_[[15, 14, 3, 11]] COMPILE PASS
+2025-04-16 22:18:41 INFO: relu_[15, 14, 3, 11]_[[15, 14, 3, 11]] EXEC PASS
+2025-04-16 22:18:45 INFO: reshape_None_[[2, 64, 32, 10]] COMPILE PASS
+2025-04-16 22:18:45 INFO: reshape_None_[[2, 64, 32, 10]] EXEC PASS
+2025-04-16 22:18:49 INFO: rms_norm_[8, 10, 12, 14]_[[8, 10, 12, 14], [14]] COMPILE PASS
+2025-04-16 22:18:49 INFO: rms_norm_[8, 10, 12, 14]_[[8, 10, 12, 14], [14]] EXEC PASS
+2025-04-16 22:18:51 INFO: round_[17, 1, 2, 11]_[[17, 1, 2, 11]] COMPILE PASS
+2025-04-16 22:18:51 INFO: round_[17, 1, 2, 11]_[[17, 1, 2, 11]] EXEC PASS
+2025-04-16 22:18:53 INFO: scale_shift_nchw_[10, 13, 18, 19]_[[10, 13, 18, 19], [13], [13]] COMPILE PASS
+2025-04-16 22:18:53 INFO: scale_shift_nchw_[10, 13, 18, 19]_[[10, 13, 18, 19], [13], [13]] EXEC PASS
+2025-04-16 22:18:55 INFO: scale_shift_nchwc_[7, 7, 16, 14]_[[7, 2, 16, 14, 7], [2, 7], [2, 7]] COMPILE PASS
+2025-04-16 22:18:55 INFO: scale_shift_nchwc_[7, 7, 16, 14]_[[7, 2, 16, 14, 7], [2, 7], [2, 7]] EXEC FAIL
+2025-04-16 22:18:55 INFO: scale_shift_nchwc_[7, 7, 16, 14]_[[7, 2, 16, 14, 7], [2, 7], [2, 7]] EXEC PASS
+2025-04-16 22:18:56 INFO: scatter_nd_None_[[2, 1560], [1, 3], [3, 1560]] COMPILE PASS
+2025-04-16 22:18:56 INFO: scatter_nd_None_[[2, 1560], [1, 3], [3, 1560]] EXEC PASS
+2025-04-16 22:18:58 INFO: shape_[14, 5, 1, 11]_[[14, 5, 1, 11]] COMPILE PASS
+2025-04-16 22:18:58 INFO: shape_[14, 5, 1, 11]_[[14, 5, 1, 11]] EXEC PASS
+2025-04-16 22:19:00 INFO: sigmoid_[1, 7, 17, 4]_[[1, 7, 17, 4]] COMPILE PASS
+2025-04-16 22:19:00 INFO: sigmoid_[1, 7, 17, 4]_[[1, 7, 17, 4]] EXEC PASS
+2025-04-16 22:19:02 INFO: sign_[16, 2, 13, 3]_[[16, 2, 13, 3]] COMPILE PASS
+2025-04-16 22:19:02 INFO: sign_[16, 2, 13, 3]_[[16, 2, 13, 3]] EXEC PASS
+2025-04-16 22:19:03 INFO: sin_[16, 2, 16, 4]_[[16, 2, 16, 4]] COMPILE PASS
+2025-04-16 22:19:03 INFO: sin_[16, 2, 16, 4]_[[16, 2, 16, 4]] EXEC PASS
+2025-04-16 22:19:05 INFO: softmax_[17, 4, 4, 1]_[[17, 4, 4, 1]] COMPILE PASS
+2025-04-16 22:19:05 INFO: softmax_[17, 4, 4, 1]_[[17, 4, 4, 1]] EXEC PASS
+2025-04-16 22:19:07 INFO: softmax_common_[18, 12, 14, 3]_[[18, 12, 14, 3]] COMPILE PASS
+2025-04-16 22:19:07 INFO: softmax_common_[18, 12, 14, 3]_[[18, 12, 14, 3]] EXEC PASS
+2025-04-16 22:19:09 INFO: space_to_depth_[18, 3, 1, 3]_[[18, 3, 2, 6]] COMPILE PASS
+2025-04-16 22:19:09 INFO: space_to_depth_[18, 3, 1, 3]_[[18, 3, 2, 6]] EXEC PASS
+2025-04-16 22:19:11 INFO: sqrt_[7, 20, 9, 1]_[[7, 20, 9, 1]] COMPILE PASS
+2025-04-16 22:19:11 INFO: sqrt_[7, 20, 9, 1]_[[7, 20, 9, 1]] EXEC PASS
+2025-04-16 22:19:12 INFO: strided_slice_[1, 2, 10, 15]_[[2, 10, 15]] COMPILE PASS
+2025-04-16 22:19:12 INFO: strided_slice_[1, 2, 10, 15]_[[2, 10, 15]] EXEC PASS
+2025-04-16 22:19:14 INFO: sum_[13, 15, 18, 17]_[[13, 15, 18, 17]] COMPILE PASS
+2025-04-16 22:19:14 INFO: sum_[13, 15, 18, 17]_[[13, 15, 18, 17]] EXEC PASS
+2025-04-16 22:19:16 INFO: tan_[13, 6, 11, 20]_[[13, 6, 11, 20]] COMPILE PASS
+2025-04-16 22:19:16 INFO: tan_[13, 6, 11, 20]_[[13, 6, 11, 20]] EXEC PASS
+2025-04-16 22:19:18 INFO: tanh_[1, 20, 14, 13]_[[1, 20, 14, 13]] COMPILE PASS
+2025-04-16 22:19:18 INFO: tanh_[1, 20, 14, 13]_[[1, 20, 14, 13]] EXEC PASS
+2025-04-16 22:19:21 INFO: unpack_NCHWc_to_nchw_[3, 7, 12, 8]_[[3, 7, 12, 8, 2]] COMPILE PASS
+2025-04-16 22:19:21 INFO: unpack_NCHWc_to_nchw_[3, 7, 12, 8]_[[3, 7, 12, 8, 2]] EXEC PASS
+2025-04-16 22:19:23 INFO: upsampling_[11, 1, 10, 9]_[[11, 1, 20, 18]] COMPILE PASS
+2025-04-16 22:19:23 INFO: upsampling_[11, 1, 10, 9]_[[11, 1, 20, 18]] EXEC FAIL
+2025-04-16 22:19:23 INFO: upsampling_[11, 1, 10, 9]_[[11, 1, 20, 18]] EXEC PASS

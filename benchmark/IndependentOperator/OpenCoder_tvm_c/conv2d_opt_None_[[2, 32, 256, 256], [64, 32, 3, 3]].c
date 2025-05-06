@@ -1,0 +1,1 @@
+void default_function_kernel

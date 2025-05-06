@@ -10,9 +10,10 @@ import time
 from args import args
 from tqdm import tqdm
 import codebleu
+from utils import search_op_info,get_code
 
 logging.basicConfig(
-    filename=f'./metric/results/result_{args.model}_{args.op_type}.log',
+    filename=f'/code/HPCTransEval/log/result_{args.model}_{args.op_type}.log',
     level=logging.INFO,
     format='%(asctime)s %(levelname)s: %(message)s',
     datefmt='%Y-%m-%d %H:%M:%S'
@@ -49,76 +50,71 @@ def exec_by_tvm(host_module, param_list):
     host_module(*param_list)
 
 if __name__ == '__main__':
-    save_path = 'DATA_PATH'
-    json_name = 'JSON_TO_LOAD'
+    base_path = '/code/HPCTransEval/benchmark'
+    N_warmup = 1
+    N_execute = 1
 
     target = tvm.target.Target(target="c", host="llvm")
-    if not os.path.exists(save_path):
-        raise Exception(f"{save_path} not found")
+    if not os.path.exists(base_path):
+        raise Exception(f"{base_path} not found")
     
-    with open(join(save_path,json_name),'r') as file:
-        op_list = json.load(file)
+    with open(join(base_path,f'{args.op_type}.json'),'r') as file:
+        op_info_dict = json.load(file)
 
+    op_info = search_op_info(op_info_dict,args.file_name)
     # Correctness Test
-    for round, op in enumerate(op_list):
-        # Prevent program interruption, using single sample test
-        file_name = '{}_{}_{}'.format(op['op_name'],op['op_args'],op['input_shape'])
-        if args.op_name != op['op_name']:
-                continue
+    host_module = load_module(join(base_path,args.op_type,'host_module',args.file_name),'ll')
+    device_module = load_module(join(base_path,args.op_type,'device_module',args.file_name),'c')
+    host_module.import_module(device_module)
 
-        host_module = load_module(join(save_path,'host_module',file_name),'ll')
-        device_module = load_module(join(save_path,'device_module',file_name),'c')
-        host_module.import_module(device_module)
+    # the c_code need to by verification
+    c_code = op_info['c_code']
+    # c_code = get_code(join(base_path,args.op_type,'c',f'{args.file_name}.c'))
+    # c_code_generated = op_info['c_code']
+    c_code_generated = get_code(join(base_path,args.op_type,f'{args.model}_c',f'{args.file_name}.c'))
+    # print('c_code:', c_code)
+    # print('c_code_generated:', c_code_generated)
 
-        # the c_code need to by verification
-        c_code = op['c_code']
-        c_code_generated = op[f'{args.model}_c']
+    # code_bleu = cal_codebleu(c_code_generated,c_code)
+    # with open(join('/code/HPCTransEval/results',f'{args.model}_codebleu.json'),'a+') as file:
+    #     json.dump({args.file_name:code_bleu},file)
 
-        code_bleu = cal_codebleu(c_code_generated,c_code)
-        with open(f'CODEBLEU_RESULT_SAVE_PATH','a+') as file:
-            json.dump({file_name:code_bleu},file)
+    # Separation of compilation and execution
+    param_list, output_tvm_list = compile_by_tvm(host_module, op_info, c_code)
+    exec_by_tvm(host_module, param_list)
+    param_list_generated, output_tvm_list_generated = compile_by_tvm(host_module, op_info, c_code_generated)
+    exec_by_tvm(host_module, param_list_generated)
 
-        # Separation of compilation and execution
-        param_list, output_tvm_list = compile_by_tvm(host_module, op, c_code)
+    logging.info(f'{args.file_name} COMPILE PASS')
+    try:
+        assert len(output_tvm_list) == len(output_tvm_list_generated)
+        for i in range(len(output_tvm_list)):
+            testing.assert_allclose(output_tvm_list[i].numpy(), output_tvm_list_generated[i].numpy())
+    except Exception as e:
+        logging.info(f'{args.file_name} EXEC FAIL')
+        exit(0)
+    logging.info(f'{args.file_name} EXEC PASS')
+
+    # Performance test
+    param_list, output_tvm_list = compile_by_tvm(host_module, op_info, c_code)
+    # warm up kernel
+    for i in range(N_warmup):
         exec_by_tvm(host_module, param_list)
-        param_list_generated, output_tvm_list_generated = compile_by_tvm(host_module, op, c_code_generated)
+    c_code_start_time = time.time()
+    for i in tqdm(range(N_execute)):
+        exec_by_tvm(host_module, param_list)
+    c_code_end_time = time.time()
+    c_code_total_time = c_code_end_time - c_code_start_time
+    param_list_generated, output_tvm_list_generated = compile_by_tvm(host_module, op_info, c_code_generated)
+    # warm up kernel
+    for i in range(N_warmup):
         exec_by_tvm(host_module, param_list_generated)
-
-        logging.info(f'{file_name} COMPILE PASS')
-        try:
-            assert len(output_tvm_list) == len(output_tvm_list_generated)
-            for i in range(len(output_tvm_list)):
-                testing.assert_allclose(output_tvm_list[i].numpy(), output_tvm_list_generated[i].numpy())
-        except Exception as e:
-            print(f"Exception on round {round+1}: {e}")
-            continue
-        logging.info(f'{file_name} EXEC PASS')
-        
-        N_warmup = 500
-        N_execute = 500
-        # Performance test
-
-        param_list, output_tvm_list = compile_by_tvm(host_module, op, c_code)
-        # warm up kernel
-        for i in range(N_warmup):
-            exec_by_tvm(host_module, param_list)
-        c_code_start_time = time.time()
-        for i in tqdm(range(N_execute)):
-            exec_by_tvm(host_module, param_list)
-        c_code_end_time = time.time()
-        c_code_total_time = c_code_end_time - c_code_start_time
-
-        param_list_generated, output_tvm_list_generated = compile_by_tvm(host_module, op, c_code_generated)
-        # warm up kernel
-        for i in range(N_warmup):
-            exec_by_tvm(host_module, param_list_generated)
-        gen_c_code_start_time = time.time()
-        for i in tqdm(range(N_execute)):
-            exec_by_tvm(host_module, param_list_generated)
-        gen_c_code_end_time = time.time()
-        gen_c_code_total_time = gen_c_code_end_time - gen_c_code_start_time
-
-        with open(f'GT_PERFORMANCE_PATH','a+') as file:
-            file.write(f'{file_name}: {c_code_total_time/N_execute}\n')
-        with open(f'GENERATED_PERFORMANCE_PATH','a+') as file:
-            file.write(f'{file_name}: {gen_c_code_total_time/N_execute}\n')
+    gen_c_code_start_time = time.time()
+    for i in tqdm(range(N_execute)):
+        exec_by_tvm(host_module, param_list_generated)
+    gen_c_code_end_time = time.time()
+    gen_c_code_total_time = gen_c_code_end_time - gen_c_code_start_time
+    with open(join('/code/HPCTransEval/results',f'{args.model}_{args.op_type}_c_time.jsonl'),'a+') as file:
+        json.dump({args.file_name:c_code_total_time/N_execute},file)
+    with open(join('/code/HPCTransEval/results',f'{args.model}_{args.op_type}_gen_c_time.jsonl'),'a+') as file:
+        json.dump({args.file_name:gen_c_code_total_time/N_execute},file)
